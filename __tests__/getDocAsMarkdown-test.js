@@ -115,7 +115,6 @@ it('documents empty propType doc for component', () => {
 
 it('documents a basic documented component', () => {
   const documentation = getDocAsMarkdown(DocumentedComponent);
-  console.log(documentation);
   expect(documentation).toMatchSnapshot();
 });
 

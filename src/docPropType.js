@@ -1,5 +1,24 @@
 import { PropTypes } from 'react';
 
+function getArgs(args) {
+  return args.map((arg) => {
+    if (arg.type && PropTypes[arg.type]) {
+      if (arg.args) {
+        return PropTypes[arg.type](arg.args);
+      }
+      return PropTypes[arg.type];
+    }
+    return arg;
+  });
+}
+
+function getPropType(validate) {
+  return PropTypes[validate.type](
+    validate.args.type && PropTypes[validate.args.type] ?
+      PropTypes[validate.args.type] : validate.args
+  );
+}
+
 // function to recursively build the proptype for shape
 function buildShapePropType(validate) {
   const args = {};
@@ -8,23 +27,12 @@ function buildShapePropType(validate) {
     if (element.type && PropTypes[element.type]) {
       if (element.args) {
         if (element.type === 'oneOfType') {
-          const elementArgs = element.args.map((currentArg) => {
-            if (currentArg.type && PropTypes[currentArg.type]) {
-              if (currentArg.args) {
-                return PropTypes[currentArg.type](currentArg.args);
-              }
-              return PropTypes[currentArg.type];
-            }
-            return currentArg;
-          });
+          const elementArgs = getArgs(element.args);
           args[arg] = PropTypes[element.type](elementArgs);
         } else if (element.type === 'shape') {
           args[arg] = buildShapePropType(element);
         } else {
-          args[arg] = PropTypes[element.type](
-            element.args.type && PropTypes[element.args.type] ?
-              PropTypes[element.args.type] : element.args
-          );
+          args[arg] = getPropType(element);
         }
       } else {
         args[arg] = PropTypes[element.type];
@@ -52,23 +60,12 @@ export default function docPropType(description, validate, options = {}) {
   if (validate.type && PropTypes[validate.type]) {
     if (validate.args) {
       if (validate.type === 'oneOfType') {
-        const args = validate.args.map((arg) => {
-          if (arg.type && PropTypes[arg.type]) {
-            if (arg.args) {
-              return PropTypes[arg.type](arg.args);
-            }
-            return PropTypes[arg.type];
-          }
-          return arg;
-        });
+        const args = getArgs(validate.args);
         type = PropTypes[validate.type](args);
       } else if (validate.type === 'shape') {
         type = buildShapePropType(validate);
       } else {
-        type = PropTypes[validate.type](
-          validate.args.type && PropTypes[validate.args.type] ?
-            PropTypes[validate.args.type] : validate.args
-        );
+        type = getPropType(validate);
       }
     } else {
       type = PropTypes[validate.type];
