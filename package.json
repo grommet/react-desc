@@ -1,0 +1,40 @@
+{
+  "name": "react-desc",
+  "version": "0.1.0",
+  "description": "Document your React components without the need of an AST parser.",
+  "authors": [
+    "Alan Souza",
+    "Bryan Jacquot",
+    "Chris Carlozzi",
+    "Eric Soderberg"
+  ],
+  "main": "src/index.js",
+  "homepage": "http://grommet.io",
+  "bugs": "https://github.com/grommet/react-desc/issues",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grommet/react-desc.git"
+  },
+  "dependencies": {
+    "react": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "jest": "^16.0.1"
+  },
+  "scripts": {
+    "lint": "eslint src && eslint __tests__",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --verbose",
+    "test:verbose": "jest --verbose",
+    "test:update": "jest -u"
+  }
+}

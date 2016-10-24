@@ -1,0 +1,52 @@
+exports[`test documents a basic documented component 1`] = `
+"## DocumentedComponent Component
+component
+
+### Properties
+
+| Property | Description | Format | Default Value | Required | Details |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| **test** | any | any |  | No |  |
+| **test2** | array | array |  | No |  |
+| **test3** | arrayOf | [number, ...] |  | No |  |
+| **test4** | bool | boolean |  | No |  |
+| **test5** | custom | XXX-XX-XXXX |  | No |  |
+| **test6** | element | element |  | No |  |
+| **test7** | func | function |  | No |  |
+| **test8** | instanceOf | new FakeComponent(...) |  | No |  |
+| **test9** | node | node |  | No |  |
+| **test10** | number | number |  | No |  |
+| **test11** | object | object |  | No |  |
+| **test12** | objectOf | { test: number, ... } |  | No |  |
+| **test13** | oneOf | News&#124;Photos |  | No |  |
+| **test14** | oneOfType | number&#124;string |  | No |  |
+| **test15** | symbol | symbol |  | No |  |
+| **test16** | shape | {\"color\":\"string\",\"fontSize\":\"number\",\"one\":\"string&#124;number&#124;new FakeComponent(...)&#124;custom\",\"test\":\"new FakeComponent(...)\",\"test2\":{\"test3\":\"string\",\"test4\":{\"test5\":\"string\",\"test6\":\"number\",\"test7\":\"custom\",\"test8\":\"[string, ...]\"}}} |  | No |  |
+| **testRequired** | testRequired | string |  | Yes |  |
+| **~~testDeprecated~~** | testDeprecated | string |  | No | **Deprecated**: use something else |
+| **testExtra** | testExtra | string | abc | No |  |"
+`;
+
+exports[`test documents a deprecated documented component 1`] = `
+"## ~~DeprecatedComponent~~ Component
+### Deprecated: use button instead
+component"
+`;
+
+exports[`test documents an extra info documented component 1`] = `
+"## ExtraInfoComponent Component
+component
+
+### Properties
+
+| Property | Description | Format | Default Value | Required | Details |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| **test** | test | string | abc | No |  |"
+`;
+
+exports[`test documents empty doc for component without reactDesc 1`] = `"## FakeComponent Component"`;
+
+exports[`test documents empty propType doc for component 1`] = `
+"## NoPropTypeComponent Component
+noPropType"
+`;

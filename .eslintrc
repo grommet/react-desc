@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "it": true,
+    "expect": true,
+    "describe": true,
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "no-use-before-define": 0
+  }
+}
