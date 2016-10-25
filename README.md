@@ -161,7 +161,7 @@ export default Anchor;
   
 * `PropTypes`
 
-  Wrapper around the React propTypes, all properties are supported. See all options [here](https://facebook.github.io/react/docs/reusable-components.html).
+  Wrapper around the React propTypes, all properties are supported. See all options [here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html).
   
 ## Why not [react-docgen](https://github.com/reactjs/react-docgen)?
 
