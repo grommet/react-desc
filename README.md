@@ -39,7 +39,7 @@ Anchor.propTypes = {
   href: docPropType('link location.', PropTypes.string, {
     deprecated: 'use path instead'
   }),
-  id: React.PropTypes.string, // this will be ignored from the documentation
+  id: React.PropTypes.string, // this will be ignored for documentation purposes
   title: docPropType('title used for accessibility.', (prop, propName) => { return ... }, {
     format: 'XXX-XX'
   }),
@@ -143,12 +143,12 @@ export default Anchor;
 
 * `docPropType(description, validate, options)`
 
-   Documents a propType where description is a required explanation about the property. Validate is the PropType which is required to be an instance from `react-desc` not from `react`. The reason is that react desc project needs to augment the react PropType with the documentation for the given component that allow it to work without an AST parser.
+   Documents a propType where description is a required explanation about the property. Validate is the PropType which is required to be an instance from `react-desc`, **not** from `react`. The reason is that react desc project needs to augment the react PropType with the documentation for the given component that allow it to work without an AST parser.
    
    Options are:
   
     * **deprecated**: optional string with the deprecation message.
-    * **required**: optional boolean that indicated with the property is required or not.
+    * **required**: optional boolean that indicates whether the property is required or not.
     * **format**: optional string that defines the propType format. It can be useful when used in conjuction with custom propType validation function.
 
 * `getDocAsJSON(component)`
@@ -165,13 +165,13 @@ export default Anchor;
   
 ## Why not [react-docgen](https://github.com/reactjs/react-docgen)?
 
-react-doceng is a great project but it relies on an AST parser to generate documentation. Most of the time this is ok, but for us the following use cases were hard to solve without a more verbose way to define prop types:
+react-docgen is a great project but it relies on an AST parser to generate documentation. Most of the time this is ok, but for us the following use cases were hard to solve without a more verbose way to define propTypes:
 
 * Define deprecated properties
-* Define required propTypes for custom function:
+* Define a required property for custom function:
 
   ```javascript
-  {
+  Anchor.propTypes = {
     test: () => { ... } // isRequired is not present here
   }
   ```
@@ -179,4 +179,4 @@ react-doceng is a great project but it relies on an AST parser to generate docum
 
 ## Limitations
 
-Comments are automatically removed by most bundling tools out there (e.g. webpack). If you use `react-desc`, your component propTypes object will be bigger and it may affect the size of your bundle. We recommend you to use [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) to remove unnecessary propTypes from production build, which is a good idea anyways.
+`react-docgen` base documentation on comments, which are automatically removed by most bundling tools out there (e.g. webpack). This is not the case with `react-desc`. We augment the propTypes object with documentation and this can affect the size of your bundle. We recommend you to use [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) to remove unnecessary propTypes from production build, which is a good idea anyways.
