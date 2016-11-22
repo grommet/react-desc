@@ -121,7 +121,7 @@ describe('array', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testArray` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testArray` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional array docPropType', () => {
@@ -193,7 +193,7 @@ describe('bool', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testBool` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testBool` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional bool docPropType', () => {
@@ -264,7 +264,7 @@ describe('func', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testFunc` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testFunc` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional func docPropType', () => {
@@ -336,7 +336,7 @@ describe('number', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testNumber` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testNumber` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional number docPropType', () => {
@@ -408,7 +408,7 @@ describe('object', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testObject` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testObject` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional object docPropType', () => {
@@ -480,7 +480,7 @@ describe('string', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testString` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testString` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional string docPropType', () => {
@@ -552,7 +552,7 @@ describe('symbol', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testSymbol` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testSymbol` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional symbol docPropType', () => {
@@ -624,7 +624,7 @@ describe('node', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testNode` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testNode` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional node docPropType', () => {
@@ -696,7 +696,7 @@ describe('element', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testElement` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testElement` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional element docPropType', () => {
@@ -786,7 +786,7 @@ describe('instanceOf', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testInstanceOf` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testInstanceOf` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional instanceOf docPropType', () => {
@@ -870,7 +870,7 @@ describe('oneOf', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testOneOf` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testOneOf` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional oneOf docPropType', () => {
@@ -967,7 +967,7 @@ describe('oneOfType', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testOneOfType` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testOneOfType` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional oneOfType docPropType', () => {
@@ -1057,7 +1057,7 @@ describe('arrayOf', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testArrayOf` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testArrayOf` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional arrayOf docPropType', () => {
@@ -1147,7 +1147,7 @@ describe('objectOf', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testObjectOf` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testObjectOf` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional objectOf docPropType', () => {
@@ -1296,7 +1296,7 @@ describe('shape', () => {
     console.error = jest.fn();
     const test = <FakeComponentRequired />;
     expect(console.error).toBeCalledWith(
-      'Warning: Failed prop type: Required prop `testShape` was not specified in `FakeComponentRequired`.\n    in FakeComponentRequired'
+      'Warning: Failed prop type: The prop `testShape` is marked as required in `FakeComponentRequired`, but its value is `undefined`.\n    in FakeComponentRequired'
     );
   });
   it('ignores a component with an optional shape docPropType', () => {
