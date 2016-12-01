@@ -33,8 +33,8 @@ describe('any', () => {
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeTruthy();
-    expect(anyPropType.$$reactSchema).toBeDefined();
-    expect(anyPropType.$$reactSchema).toMatchSnapshot();
+    expect(anyPropType.$$reactDesc).toBeDefined();
+    expect(anyPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required any propType', () => {
@@ -44,8 +44,8 @@ describe('any', () => {
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeFalsy();
-    expect(anyPropType.$$reactSchema).toBeDefined();
-    expect(anyPropType.$$reactSchema).toMatchSnapshot();
+    expect(anyPropType.$$reactDesc).toBeDefined();
+    expect(anyPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated any propType', () => {
@@ -55,8 +55,8 @@ describe('any', () => {
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeTruthy();
-    expect(anyPropType.$$reactSchema).toBeDefined();
-    expect(anyPropType.$$reactSchema).toMatchSnapshot();
+    expect(anyPropType.$$reactDesc).toBeDefined();
+    expect(anyPropType.$$reactDesc).toMatchSnapshot();
   });
 });
 
@@ -76,8 +76,8 @@ describe('array', () => {
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeTruthy();
-    expect(arrayPropType.$$reactSchema).toBeDefined();
-    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayPropType.$$reactDesc).toBeDefined();
+    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required array propType', () => {
@@ -87,8 +87,8 @@ describe('array', () => {
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeFalsy();
-    expect(arrayPropType.$$reactSchema).toBeDefined();
-    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayPropType.$$reactDesc).toBeDefined();
+    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated array propType', () => {
@@ -98,8 +98,8 @@ describe('array', () => {
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeTruthy();
-    expect(arrayPropType.$$reactSchema).toBeDefined();
-    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayPropType.$$reactDesc).toBeDefined();
+    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -148,8 +148,8 @@ describe('bool', () => {
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeTruthy();
-    expect(boolPropType.$$reactSchema).toBeDefined();
-    expect(boolPropType.$$reactSchema).toMatchSnapshot();
+    expect(boolPropType.$$reactDesc).toBeDefined();
+    expect(boolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required bool propType', () => {
@@ -159,8 +159,8 @@ describe('bool', () => {
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeFalsy();
-    expect(boolPropType.$$reactSchema).toBeDefined();
-    expect(boolPropType.$$reactSchema).toMatchSnapshot();
+    expect(boolPropType.$$reactDesc).toBeDefined();
+    expect(boolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated bool propType', () => {
@@ -170,8 +170,8 @@ describe('bool', () => {
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeTruthy();
-    expect(boolPropType.$$reactSchema).toBeDefined();
-    expect(boolPropType.$$reactSchema).toMatchSnapshot();
+    expect(boolPropType.$$reactDesc).toBeDefined();
+    expect(boolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -220,8 +220,8 @@ describe('func', () => {
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeTruthy();
-    expect(funcPropType.$$reactSchema).toBeDefined();
-    expect(funcPropType.$$reactSchema).toMatchSnapshot();
+    expect(funcPropType.$$reactDesc).toBeDefined();
+    expect(funcPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required func propType', () => {
@@ -231,8 +231,8 @@ describe('func', () => {
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeFalsy();
-    expect(funcPropType.$$reactSchema).toBeDefined();
-    expect(funcPropType.$$reactSchema).toMatchSnapshot();
+    expect(funcPropType.$$reactDesc).toBeDefined();
+    expect(funcPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated func propType', () => {
@@ -242,8 +242,8 @@ describe('func', () => {
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeTruthy();
-    expect(funcPropType.$$reactSchema).toBeDefined();
-    expect(funcPropType.$$reactSchema).toMatchSnapshot();
+    expect(funcPropType.$$reactDesc).toBeDefined();
+    expect(funcPropType.$$reactDesc).toMatchSnapshot();
   });
   /* eslint-disable no-unused-vars, no-console */
   it('validates a component with an func docPropType', () => {
@@ -291,8 +291,8 @@ describe('number', () => {
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeTruthy();
-    expect(numberPropType.$$reactSchema).toBeDefined();
-    expect(numberPropType.$$reactSchema).toMatchSnapshot();
+    expect(numberPropType.$$reactDesc).toBeDefined();
+    expect(numberPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required number propType', () => {
@@ -302,8 +302,8 @@ describe('number', () => {
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeFalsy();
-    expect(numberPropType.$$reactSchema).toBeDefined();
-    expect(numberPropType.$$reactSchema).toMatchSnapshot();
+    expect(numberPropType.$$reactDesc).toBeDefined();
+    expect(numberPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated number propType', () => {
@@ -313,8 +313,8 @@ describe('number', () => {
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeTruthy();
-    expect(numberPropType.$$reactSchema).toBeDefined();
-    expect(numberPropType.$$reactSchema).toMatchSnapshot();
+    expect(numberPropType.$$reactDesc).toBeDefined();
+    expect(numberPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -363,8 +363,8 @@ describe('object', () => {
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeTruthy();
-    expect(objectPropType.$$reactSchema).toBeDefined();
-    expect(objectPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectPropType.$$reactDesc).toBeDefined();
+    expect(objectPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required object propType', () => {
@@ -374,8 +374,8 @@ describe('object', () => {
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeFalsy();
-    expect(objectPropType.$$reactSchema).toBeDefined();
-    expect(objectPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectPropType.$$reactDesc).toBeDefined();
+    expect(objectPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated object propType', () => {
@@ -385,8 +385,8 @@ describe('object', () => {
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeTruthy();
-    expect(objectPropType.$$reactSchema).toBeDefined();
-    expect(objectPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectPropType.$$reactDesc).toBeDefined();
+    expect(objectPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -435,8 +435,8 @@ describe('string', () => {
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeTruthy();
-    expect(stringPropType.$$reactSchema).toBeDefined();
-    expect(stringPropType.$$reactSchema).toMatchSnapshot();
+    expect(stringPropType.$$reactDesc).toBeDefined();
+    expect(stringPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required string propType', () => {
@@ -446,8 +446,8 @@ describe('string', () => {
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeFalsy();
-    expect(stringPropType.$$reactSchema).toBeDefined();
-    expect(stringPropType.$$reactSchema).toMatchSnapshot();
+    expect(stringPropType.$$reactDesc).toBeDefined();
+    expect(stringPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated string propType', () => {
@@ -457,8 +457,8 @@ describe('string', () => {
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeTruthy();
-    expect(stringPropType.$$reactSchema).toBeDefined();
-    expect(stringPropType.$$reactSchema).toMatchSnapshot();
+    expect(stringPropType.$$reactDesc).toBeDefined();
+    expect(stringPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -507,8 +507,8 @@ describe('symbol', () => {
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeTruthy();
-    expect(symbolPropType.$$reactSchema).toBeDefined();
-    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
+    expect(symbolPropType.$$reactDesc).toBeDefined();
+    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required symbol propType', () => {
@@ -518,8 +518,8 @@ describe('symbol', () => {
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeFalsy();
-    expect(symbolPropType.$$reactSchema).toBeDefined();
-    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
+    expect(symbolPropType.$$reactDesc).toBeDefined();
+    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated symbol propType', () => {
@@ -529,8 +529,8 @@ describe('symbol', () => {
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeTruthy();
-    expect(symbolPropType.$$reactSchema).toBeDefined();
-    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
+    expect(symbolPropType.$$reactDesc).toBeDefined();
+    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -579,8 +579,8 @@ describe('node', () => {
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeTruthy();
-    expect(nodePropType.$$reactSchema).toBeDefined();
-    expect(nodePropType.$$reactSchema).toMatchSnapshot();
+    expect(nodePropType.$$reactDesc).toBeDefined();
+    expect(nodePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required node propType', () => {
@@ -590,8 +590,8 @@ describe('node', () => {
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeFalsy();
-    expect(nodePropType.$$reactSchema).toBeDefined();
-    expect(nodePropType.$$reactSchema).toMatchSnapshot();
+    expect(nodePropType.$$reactDesc).toBeDefined();
+    expect(nodePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated node propType', () => {
@@ -601,8 +601,8 @@ describe('node', () => {
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeTruthy();
-    expect(nodePropType.$$reactSchema).toBeDefined();
-    expect(nodePropType.$$reactSchema).toMatchSnapshot();
+    expect(nodePropType.$$reactDesc).toBeDefined();
+    expect(nodePropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -651,8 +651,8 @@ describe('element', () => {
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeTruthy();
-    expect(elementPropType.$$reactSchema).toBeDefined();
-    expect(elementPropType.$$reactSchema).toMatchSnapshot();
+    expect(elementPropType.$$reactDesc).toBeDefined();
+    expect(elementPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required element propType', () => {
@@ -662,8 +662,8 @@ describe('element', () => {
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeFalsy();
-    expect(elementPropType.$$reactSchema).toBeDefined();
-    expect(elementPropType.$$reactSchema).toMatchSnapshot();
+    expect(elementPropType.$$reactDesc).toBeDefined();
+    expect(elementPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated element propType', () => {
@@ -673,8 +673,8 @@ describe('element', () => {
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeTruthy();
-    expect(elementPropType.$$reactSchema).toBeDefined();
-    expect(elementPropType.$$reactSchema).toMatchSnapshot();
+    expect(elementPropType.$$reactDesc).toBeDefined();
+    expect(elementPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -728,11 +728,11 @@ describe('instanceOf', () => {
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeTruthy();
-    expect(instanceOfPropType.$$reactSchema).toBeDefined();
-    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactDesc).toBeDefined();
+    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required instanceOf propType', () => {
@@ -744,11 +744,11 @@ describe('instanceOf', () => {
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeFalsy();
-    expect(instanceOfPropType.$$reactSchema).toBeDefined();
-    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactDesc).toBeDefined();
+    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated instanceOf propType', () => {
@@ -760,11 +760,11 @@ describe('instanceOf', () => {
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeTruthy();
-    expect(instanceOfPropType.$$reactSchema).toBeDefined();
-    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactDesc).toBeDefined();
+    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -818,9 +818,9 @@ describe('oneOf', () => {
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeTruthy();
-    expect(oneOfPropType.$$reactSchema).toBeDefined();
-    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfPropType.$$reactDesc).toBeDefined();
+    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required oneOf propType', () => {
@@ -832,9 +832,9 @@ describe('oneOf', () => {
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeFalsy();
-    expect(oneOfPropType.$$reactSchema).toBeDefined();
-    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfPropType.$$reactDesc).toBeDefined();
+    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated oneOf propType', () => {
@@ -846,9 +846,9 @@ describe('oneOf', () => {
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeTruthy();
-    expect(oneOfPropType.$$reactSchema).toBeDefined();
-    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfPropType.$$reactDesc).toBeDefined();
+    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -908,8 +908,8 @@ describe('oneOfType', () => {
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeTruthy();
-    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
-    oneOfTypePropType.$$reactSchema.validate.args.forEach((arg) => {
+    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
+    oneOfTypePropType.$$reactDesc.validate.args.forEach((arg) => {
       if (arg.type === 'instanceOf') {
         expect(arg.args.name).toEqual(
           'FakeClass'
@@ -917,7 +917,7 @@ describe('oneOfType', () => {
       }
       expect(arg).toMatchSnapshot();
     });
-    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required oneOfType propType', () => {
@@ -929,9 +929,9 @@ describe('oneOfType', () => {
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeFalsy();
-    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
-    expect(oneOfTypePropType.$$reactSchema.validate.args.length).toEqual(4);
-    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
+    expect(oneOfTypePropType.$$reactDesc.validate.args.length).toEqual(4);
+    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated oneOfType propType', () => {
@@ -943,9 +943,9 @@ describe('oneOfType', () => {
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeTruthy();
-    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
-    expect(oneOfTypePropType.$$reactSchema.validate.args.length).toEqual(4);
-    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
+    expect(oneOfTypePropType.$$reactDesc.validate.args.length).toEqual(4);
+    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -999,11 +999,11 @@ describe('arrayOf', () => {
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeTruthy();
-    expect(arrayOfPropType.$$reactSchema).toBeDefined();
-    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactDesc).toBeDefined();
+    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required arrayOf propType', () => {
@@ -1015,11 +1015,11 @@ describe('arrayOf', () => {
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeFalsy();
-    expect(arrayOfPropType.$$reactSchema).toBeDefined();
-    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactDesc).toBeDefined();
+    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated arrayOf propType', () => {
@@ -1031,11 +1031,11 @@ describe('arrayOf', () => {
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeTruthy();
-    expect(arrayOfPropType.$$reactSchema).toBeDefined();
-    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactDesc).toBeDefined();
+    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1089,11 +1089,11 @@ describe('objectOf', () => {
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeTruthy();
-    expect(objectOfPropType.$$reactSchema).toBeDefined();
-    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactDesc).toBeDefined();
+    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required objectOf propType', () => {
@@ -1105,11 +1105,11 @@ describe('objectOf', () => {
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeFalsy();
-    expect(objectOfPropType.$$reactSchema).toBeDefined();
-    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactDesc).toBeDefined();
+    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated objectOf propType', () => {
@@ -1121,11 +1121,11 @@ describe('objectOf', () => {
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeTruthy();
-    expect(objectOfPropType.$$reactSchema).toBeDefined();
-    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactDesc).toBeDefined();
+    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
+    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1199,14 +1199,14 @@ describe('shape', () => {
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeTruthy();
-    expect(shapePropType.$$reactSchema).toBeDefined();
-    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactDesc).toBeDefined();
+    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactSchema).toMatchSnapshot();
+    expect(shapePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required shape propType', () => {
@@ -1218,14 +1218,14 @@ describe('shape', () => {
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeFalsy();
-    expect(shapePropType.$$reactSchema).toBeDefined();
-    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactDesc).toBeDefined();
+    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactSchema).toMatchSnapshot();
+    expect(shapePropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated shape propType', () => {
@@ -1237,14 +1237,14 @@ describe('shape', () => {
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeTruthy();
-    expect(shapePropType.$$reactSchema).toBeDefined();
-    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactDesc).toBeDefined();
+    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactSchema).toMatchSnapshot();
+    expect(shapePropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1336,11 +1336,11 @@ describe('custom', () => {
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactSchema).toBeDefined();
-    expect(customPropType.$$reactSchema.validate.name).toEqual(
+    expect(customPropType.$$reactDesc).toBeDefined();
+    expect(customPropType.$$reactDesc.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactSchema).toMatchSnapshot();
+    expect(customPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a required custom propType', () => {
@@ -1352,11 +1352,11 @@ describe('custom', () => {
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactSchema).toBeDefined();
-    expect(customPropType.$$reactSchema.validate.name).toEqual(
+    expect(customPropType.$$reactDesc).toBeDefined();
+    expect(customPropType.$$reactDesc.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactSchema).toMatchSnapshot();
+    expect(customPropType.$$reactDesc).toMatchSnapshot();
   });
 
   it('documents a deprecated custom propType', () => {
@@ -1368,11 +1368,11 @@ describe('custom', () => {
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactSchema).toBeDefined();
-    expect(customPropType.$$reactSchema.validate.name).toEqual(
+    expect(customPropType.$$reactDesc).toBeDefined();
+    expect(customPropType.$$reactDesc.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactSchema).toMatchSnapshot();
+    expect(customPropType.$$reactDesc).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */

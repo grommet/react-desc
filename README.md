@@ -1,7 +1,7 @@
-# react-schema
+# react-desc
 
 [![Slack](http://alansouzati.github.io/artic/img/slack-badge.svg)](http://slackin.grommet.io)
-[![Build Status](https://travis-ci.org/grommet/react-schema.svg?branch=master)](https://travis-ci.org/grommet/react-schema)
+[![Build Status](https://travis-ci.org/grommet/react-desc.svg?branch=master)](https://travis-ci.org/grommet/react-desc)
 [![Code Climate](https://codeclimate.com/github/grommet/react-desc/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-desc)
 [![Test Coverage](https://codeclimate.com/github/grommet/react-desc/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-desc/coverage)
 
@@ -10,7 +10,7 @@ Add an schema to your React components based on React PropTypes
 ## Installation
 
 ```bash
-npm install react-schema
+npm install react-desc
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install react-schema
 // Anchor.js
 
 import React from 'react';
-import { schema, PropTypes } from 'react-schema';
+import { schema, PropTypes } from 'react-desc';
 
 const Anchor = (props) => {
   const { path, ...rest } = props;
@@ -61,7 +61,7 @@ export default Anchor;
 * JSON output
 
   ```javascript
-    import { getDocAsJSON } from 'react-schema';
+    import { getDocAsJSON } from 'react-desc';
     import Anchor from './Anchor';
 
     const documentation = getDocAsJSON(Anchor);
@@ -104,7 +104,7 @@ export default Anchor;
 * Markdown output
 
   ```javascript
-    import { getDocAsJSON } from 'react-schema';
+    import { getDocAsJSON } from 'react-desc';
     import Anchor from './Anchor';
 
     const documentation = getDocAsMarkdown(Anchor);
@@ -154,7 +154,7 @@ export default Anchor;
 
 * `docPropType(validate, description, options)`
 
-   Documents a propType where description is a required explanation about the property. Validate is the PropType which is required to be an instance from `react-schema`, **not** from `react`. The reason is that react desc project needs to augment the react PropType with the documentation for the given component that allow it to work without an AST parser.
+   Documents a propType where description is a required explanation about the property. Validate is the PropType which is required to be an instance from `react-desc`, **not** from `react`. The reason is that react desc project needs to augment the react PropType with the documentation for the given component that allow it to work without an AST parser.
 
    Options are:
 
@@ -190,4 +190,4 @@ react-docgen is a great project but it relies on an AST parser to generate docum
 
 ## Limitations
 
-`react-docgen` base documentation on comments, which are automatically removed by most bundling tools out there (e.g. webpack). This is not the case with `react-schema`. We augment the propTypes object with documentation and this can affect the size of your bundle. We recommend you to use [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) to remove unnecessary propTypes from production build, which is a good idea anyways.
+`react-docgen` base documentation on comments, which are automatically removed by most bundling tools out there (e.g. webpack). This is not the case with `react-desc`. We augment the propTypes object with documentation and this can affect the size of your bundle. We recommend you to use [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) to remove unnecessary propTypes from production build, which is a good idea anyways.

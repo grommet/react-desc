@@ -81,6 +81,6 @@ export default function docPropType(validate, description, options = {}) {
   if (required && propType.isRequired) {
     propType = propType.isRequired;
   }
-  propType.$$reactSchema = { description, validate, options };
+  propType.$$reactDesc = { description, validate, options };
   return propType;
 }

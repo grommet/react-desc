@@ -8,8 +8,8 @@ export default function schema(component, metadata = {}) {
     throw new Error('schema: description is required');
   }
 
-  const reactSchema = { ...metadata };
-  delete reactSchema.props;
+  const reactDesc = { ...metadata };
+  delete reactDesc.props;
   let defaultProps;
   let propTypes;
 
@@ -41,7 +41,7 @@ export default function schema(component, metadata = {}) {
   }
 
   /* eslint-disable no-param-reassign */
-  component.$$reactSchema = reactSchema;
+  component.$$reactDesc = reactDesc;
   if (propTypes) {
     component.propTypes = propTypes;
   }

@@ -1,5 +1,5 @@
 {
-  "name": "react-schema",
+  "name": "react-desc",
   "version": "1.0.0",
   "description": "Add an schema to your React components based on React PropTypes.",
   "authors": [
@@ -10,11 +10,11 @@
   ],
   "main": "lib/index.js",
   "homepage": "http://grommet.io",
-  "bugs": "https://github.com/grommet/react-schema/issues",
+  "bugs": "https://github.com/grommet/react-desc/issues",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grommet/react-schema.git"
+    "url": "https://github.com/grommet/react-desc.git"
   },
   "dependencies": {
     "react": "^15.3.2"
