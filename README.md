@@ -2,8 +2,8 @@
 
 [![Slack](http://alansouzati.github.io/artic/img/slack-badge.svg)](http://slackin.grommet.io)
 [![Build Status](https://travis-ci.org/grommet/react-schema.svg?branch=master)](https://travis-ci.org/grommet/react-schema)
-[![Code Climate](https://codeclimate.com/github/grommet/react-schema/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-schema)
-[![Test Coverage](https://codeclimate.com/github/grommet/react-schema/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-schema/coverage)
+[![Code Climate](https://codeclimate.com/github/grommet/react-desc/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-desc)
+[![Test Coverage](https://codeclimate.com/github/grommet/react-desc/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-desc/coverage)
 
 Add an schema to your React components based on React PropTypes
 
