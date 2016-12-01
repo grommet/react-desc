@@ -5,101 +5,101 @@ import PropTypes from '../src/PropTypes';
 
 it('fails for missing description propType', () => {
   expect(() => {
-    docPropType(undefined, PropTypes.any);
+    docPropType(PropTypes.any, undefined);
   }).toThrowError('docPropType: description is required');
 });
 
 it('fails for missing validate propType', () => {
   expect(() => {
-    docPropType('test');
+    docPropType(undefined, 'test');
   }).toThrowError('docPropType: validate is required');
 });
 
 it('fails for missing type', () => {
   expect(() => {
-    docPropType('test', { type: 'crazy' });
+    docPropType({ type: 'crazy' }, 'test');
   }).toThrowError('docPropType: unknown type crazy');
 });
 
 it('fails for missing type in shape', () => {
   expect(() => {
-    docPropType('test', PropTypes.shape({ test: { type: 'crazy' } }));
+    docPropType(PropTypes.shape({ test: { type: 'crazy' } }), 'test');
   }).toThrowError('docPropType: unknown type crazy');
 });
 
 describe('any', () => {
   it('documents a basic any propType', () => {
-    const anyPropType = docPropType('any', PropTypes.any);
+    const anyPropType = docPropType(PropTypes.any, 'any');
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeTruthy();
-    expect(anyPropType.$$reactDesc).toBeDefined();
-    expect(anyPropType.$$reactDesc).toMatchSnapshot();
+    expect(anyPropType.$$reactSchema).toBeDefined();
+    expect(anyPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required any propType', () => {
-    const anyPropType = docPropType('any', PropTypes.any, {
+    const anyPropType = docPropType(PropTypes.any, 'any', {
       required: true,
     });
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeFalsy();
-    expect(anyPropType.$$reactDesc).toBeDefined();
-    expect(anyPropType.$$reactDesc).toMatchSnapshot();
+    expect(anyPropType.$$reactSchema).toBeDefined();
+    expect(anyPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated any propType', () => {
-    const anyPropType = docPropType('any', PropTypes.any, {
+    const anyPropType = docPropType(PropTypes.any, 'any', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(anyPropType).toBeDefined();
     expect(anyPropType.isRequired).toBeTruthy();
-    expect(anyPropType.$$reactDesc).toBeDefined();
-    expect(anyPropType.$$reactDesc).toMatchSnapshot();
+    expect(anyPropType.$$reactSchema).toBeDefined();
+    expect(anyPropType.$$reactSchema).toMatchSnapshot();
   });
 });
 
 describe('array', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('array', PropTypes.array),
+    test: docPropType(PropTypes.array, 'array'),
   };
   const FakeComponentRequired = props => <div>{props.testArray}</div>;
   FakeComponentRequired.propTypes = {
-    testArray: docPropType('array', PropTypes.array, {
+    testArray: docPropType(PropTypes.array, 'array', {
       required: true,
     }),
   };
   it('documents a basic array propType', () => {
-    const arrayPropType = docPropType('array', PropTypes.array);
+    const arrayPropType = docPropType(PropTypes.array, 'array');
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeTruthy();
-    expect(arrayPropType.$$reactDesc).toBeDefined();
-    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayPropType.$$reactSchema).toBeDefined();
+    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required array propType', () => {
-    const arrayPropType = docPropType('array', PropTypes.array, {
+    const arrayPropType = docPropType(PropTypes.array, 'array', {
       required: true,
     });
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeFalsy();
-    expect(arrayPropType.$$reactDesc).toBeDefined();
-    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayPropType.$$reactSchema).toBeDefined();
+    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated array propType', () => {
-    const arrayPropType = docPropType('array', PropTypes.array, {
+    const arrayPropType = docPropType(PropTypes.array, 'array', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(arrayPropType).toBeDefined();
     expect(arrayPropType.isRequired).toBeTruthy();
-    expect(arrayPropType.$$reactDesc).toBeDefined();
-    expect(arrayPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayPropType.$$reactSchema).toBeDefined();
+    expect(arrayPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -135,43 +135,43 @@ describe('array', () => {
 describe('bool', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('bool', PropTypes.bool),
+    test: docPropType(PropTypes.bool, 'bool'),
   };
   const FakeComponentRequired = props => <div>{props.testBool}</div>;
   FakeComponentRequired.propTypes = {
-    testBool: docPropType('bool', PropTypes.bool, {
+    testBool: docPropType(PropTypes.bool, 'bool', {
       required: true,
     }),
   };
   it('documents a basic bool propType', () => {
-    const boolPropType = docPropType('bool', PropTypes.bool);
+    const boolPropType = docPropType(PropTypes.bool, 'bool');
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeTruthy();
-    expect(boolPropType.$$reactDesc).toBeDefined();
-    expect(boolPropType.$$reactDesc).toMatchSnapshot();
+    expect(boolPropType.$$reactSchema).toBeDefined();
+    expect(boolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required bool propType', () => {
-    const boolPropType = docPropType('bool', PropTypes.bool, {
+    const boolPropType = docPropType(PropTypes.bool, 'bool', {
       required: true,
     });
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeFalsy();
-    expect(boolPropType.$$reactDesc).toBeDefined();
-    expect(boolPropType.$$reactDesc).toMatchSnapshot();
+    expect(boolPropType.$$reactSchema).toBeDefined();
+    expect(boolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated bool propType', () => {
-    const boolPropType = docPropType('bool', PropTypes.bool, {
+    const boolPropType = docPropType(PropTypes.bool, 'bool', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(boolPropType).toBeDefined();
     expect(boolPropType.isRequired).toBeTruthy();
-    expect(boolPropType.$$reactDesc).toBeDefined();
-    expect(boolPropType.$$reactDesc).toMatchSnapshot();
+    expect(boolPropType.$$reactSchema).toBeDefined();
+    expect(boolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -207,7 +207,7 @@ describe('bool', () => {
 describe('func', () => {
   const FakeComponent = props => <div onClick={props.test}>test</div>;
   FakeComponent.propTypes = {
-    test: docPropType('func', PropTypes.func),
+    test: docPropType(PropTypes.func, 'func'),
   };
   const FakeComponentRequired = props => (
     <div onClick={props.testFunc}>test</div>
@@ -216,34 +216,34 @@ describe('func', () => {
     testFunc: React.PropTypes.bool.isRequired,
   };
   it('documents a basic func propType', () => {
-    const funcPropType = docPropType('func', PropTypes.func);
+    const funcPropType = docPropType(PropTypes.func, 'func');
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeTruthy();
-    expect(funcPropType.$$reactDesc).toBeDefined();
-    expect(funcPropType.$$reactDesc).toMatchSnapshot();
+    expect(funcPropType.$$reactSchema).toBeDefined();
+    expect(funcPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required func propType', () => {
-    const funcPropType = docPropType('func', PropTypes.func, {
+    const funcPropType = docPropType(PropTypes.func, 'func', {
       required: true,
     });
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeFalsy();
-    expect(funcPropType.$$reactDesc).toBeDefined();
-    expect(funcPropType.$$reactDesc).toMatchSnapshot();
+    expect(funcPropType.$$reactSchema).toBeDefined();
+    expect(funcPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated func propType', () => {
-    const funcPropType = docPropType('func', PropTypes.func, {
+    const funcPropType = docPropType(PropTypes.func, 'func', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(funcPropType).toBeDefined();
     expect(funcPropType.isRequired).toBeTruthy();
-    expect(funcPropType.$$reactDesc).toBeDefined();
-    expect(funcPropType.$$reactDesc).toMatchSnapshot();
+    expect(funcPropType.$$reactSchema).toBeDefined();
+    expect(funcPropType.$$reactSchema).toMatchSnapshot();
   });
   /* eslint-disable no-unused-vars, no-console */
   it('validates a component with an func docPropType', () => {
@@ -278,43 +278,43 @@ describe('func', () => {
 describe('number', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('number', PropTypes.number),
+    test: docPropType(PropTypes.number, 'number'),
   };
   const FakeComponentRequired = props => <div>{props.testNumber}</div>;
   FakeComponentRequired.propTypes = {
-    testNumber: docPropType('number', PropTypes.number, {
+    testNumber: docPropType(PropTypes.number, 'number', {
       required: true,
     }),
   };
   it('documents a basic number propType', () => {
-    const numberPropType = docPropType('number', PropTypes.number);
+    const numberPropType = docPropType(PropTypes.number, 'number');
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeTruthy();
-    expect(numberPropType.$$reactDesc).toBeDefined();
-    expect(numberPropType.$$reactDesc).toMatchSnapshot();
+    expect(numberPropType.$$reactSchema).toBeDefined();
+    expect(numberPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required number propType', () => {
-    const numberPropType = docPropType('number', PropTypes.number, {
+    const numberPropType = docPropType(PropTypes.number, 'number', {
       required: true,
     });
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeFalsy();
-    expect(numberPropType.$$reactDesc).toBeDefined();
-    expect(numberPropType.$$reactDesc).toMatchSnapshot();
+    expect(numberPropType.$$reactSchema).toBeDefined();
+    expect(numberPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated number propType', () => {
-    const numberPropType = docPropType('number', PropTypes.number, {
+    const numberPropType = docPropType(PropTypes.number, 'number', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(numberPropType).toBeDefined();
     expect(numberPropType.isRequired).toBeTruthy();
-    expect(numberPropType.$$reactDesc).toBeDefined();
-    expect(numberPropType.$$reactDesc).toMatchSnapshot();
+    expect(numberPropType.$$reactSchema).toBeDefined();
+    expect(numberPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -350,43 +350,43 @@ describe('number', () => {
 describe('object', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('object', PropTypes.object),
+    test: docPropType(PropTypes.object, 'object'),
   };
   const FakeComponentRequired = props => <div>{props.testObject}</div>;
   FakeComponentRequired.propTypes = {
-    testObject: docPropType('object', PropTypes.object, {
+    testObject: docPropType(PropTypes.object, 'object', {
       required: true,
     }),
   };
   it('documents a basic object propType', () => {
-    const objectPropType = docPropType('object', PropTypes.object);
+    const objectPropType = docPropType(PropTypes.object, 'object');
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeTruthy();
-    expect(objectPropType.$$reactDesc).toBeDefined();
-    expect(objectPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectPropType.$$reactSchema).toBeDefined();
+    expect(objectPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required object propType', () => {
-    const objectPropType = docPropType('object', PropTypes.object, {
+    const objectPropType = docPropType(PropTypes.object, 'object', {
       required: true,
     });
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeFalsy();
-    expect(objectPropType.$$reactDesc).toBeDefined();
-    expect(objectPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectPropType.$$reactSchema).toBeDefined();
+    expect(objectPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated object propType', () => {
-    const objectPropType = docPropType('object', PropTypes.object, {
+    const objectPropType = docPropType(PropTypes.object, 'object', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(objectPropType).toBeDefined();
     expect(objectPropType.isRequired).toBeTruthy();
-    expect(objectPropType.$$reactDesc).toBeDefined();
-    expect(objectPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectPropType.$$reactSchema).toBeDefined();
+    expect(objectPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -422,43 +422,43 @@ describe('object', () => {
 describe('string', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('string', PropTypes.string),
+    test: docPropType(PropTypes.string, 'string'),
   };
   const FakeComponentRequired = props => <div>{props.testString}</div>;
   FakeComponentRequired.propTypes = {
-    testString: docPropType('string', PropTypes.string, {
+    testString: docPropType(PropTypes.string, 'string', {
       required: true,
     }),
   };
   it('documents a basic string propType', () => {
-    const stringPropType = docPropType('string', PropTypes.string);
+    const stringPropType = docPropType(PropTypes.string, 'string');
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeTruthy();
-    expect(stringPropType.$$reactDesc).toBeDefined();
-    expect(stringPropType.$$reactDesc).toMatchSnapshot();
+    expect(stringPropType.$$reactSchema).toBeDefined();
+    expect(stringPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required string propType', () => {
-    const stringPropType = docPropType('string', PropTypes.string, {
+    const stringPropType = docPropType(PropTypes.string, 'string', {
       required: true,
     });
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeFalsy();
-    expect(stringPropType.$$reactDesc).toBeDefined();
-    expect(stringPropType.$$reactDesc).toMatchSnapshot();
+    expect(stringPropType.$$reactSchema).toBeDefined();
+    expect(stringPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated string propType', () => {
-    const stringPropType = docPropType('string', PropTypes.string, {
+    const stringPropType = docPropType(PropTypes.string, 'string', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(stringPropType).toBeDefined();
     expect(stringPropType.isRequired).toBeTruthy();
-    expect(stringPropType.$$reactDesc).toBeDefined();
-    expect(stringPropType.$$reactDesc).toMatchSnapshot();
+    expect(stringPropType.$$reactSchema).toBeDefined();
+    expect(stringPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -494,43 +494,43 @@ describe('string', () => {
 describe('symbol', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('symbol', PropTypes.symbol),
+    test: docPropType(PropTypes.symbol, 'symbol'),
   };
   const FakeComponentRequired = props => <div>{props.testSymbol}</div>;
   FakeComponentRequired.propTypes = {
-    testSymbol: docPropType('symbol', PropTypes.symbol, {
+    testSymbol: docPropType(PropTypes.symbol, 'symbol', {
       required: true,
     }),
   };
   it('documents a basic symbol propType', () => {
-    const symbolPropType = docPropType('symbol', PropTypes.symbol);
+    const symbolPropType = docPropType(PropTypes.symbol, 'symbol');
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeTruthy();
-    expect(symbolPropType.$$reactDesc).toBeDefined();
-    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
+    expect(symbolPropType.$$reactSchema).toBeDefined();
+    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required symbol propType', () => {
-    const symbolPropType = docPropType('symbol', PropTypes.symbol, {
+    const symbolPropType = docPropType(PropTypes.symbol, 'symbol', {
       required: true,
     });
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeFalsy();
-    expect(symbolPropType.$$reactDesc).toBeDefined();
-    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
+    expect(symbolPropType.$$reactSchema).toBeDefined();
+    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated symbol propType', () => {
-    const symbolPropType = docPropType('symbol', PropTypes.symbol, {
+    const symbolPropType = docPropType(PropTypes.symbol, 'symbol', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(symbolPropType).toBeDefined();
     expect(symbolPropType.isRequired).toBeTruthy();
-    expect(symbolPropType.$$reactDesc).toBeDefined();
-    expect(symbolPropType.$$reactDesc).toMatchSnapshot();
+    expect(symbolPropType.$$reactSchema).toBeDefined();
+    expect(symbolPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -566,43 +566,43 @@ describe('symbol', () => {
 describe('node', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('node', PropTypes.node),
+    test: docPropType(PropTypes.node, 'node'),
   };
   const FakeComponentRequired = props => <div>{props.testNode}</div>;
   FakeComponentRequired.propTypes = {
-    testNode: docPropType('node', PropTypes.node, {
+    testNode: docPropType(PropTypes.node, 'node', {
       required: true,
     }),
   };
   it('documents a basic node propType', () => {
-    const nodePropType = docPropType('node', PropTypes.node);
+    const nodePropType = docPropType(PropTypes.node, 'node');
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeTruthy();
-    expect(nodePropType.$$reactDesc).toBeDefined();
-    expect(nodePropType.$$reactDesc).toMatchSnapshot();
+    expect(nodePropType.$$reactSchema).toBeDefined();
+    expect(nodePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required node propType', () => {
-    const nodePropType = docPropType('node', PropTypes.node, {
+    const nodePropType = docPropType(PropTypes.node, 'node', {
       required: true,
     });
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeFalsy();
-    expect(nodePropType.$$reactDesc).toBeDefined();
-    expect(nodePropType.$$reactDesc).toMatchSnapshot();
+    expect(nodePropType.$$reactSchema).toBeDefined();
+    expect(nodePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated node propType', () => {
-    const nodePropType = docPropType('node', PropTypes.node, {
+    const nodePropType = docPropType(PropTypes.node, 'node', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(nodePropType).toBeDefined();
     expect(nodePropType.isRequired).toBeTruthy();
-    expect(nodePropType.$$reactDesc).toBeDefined();
-    expect(nodePropType.$$reactDesc).toMatchSnapshot();
+    expect(nodePropType.$$reactSchema).toBeDefined();
+    expect(nodePropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -638,43 +638,43 @@ describe('node', () => {
 describe('element', () => {
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('element', PropTypes.element),
+    test: docPropType(PropTypes.element, 'element'),
   };
   const FakeComponentRequired = props => <div>{props.testElement}</div>;
   FakeComponentRequired.propTypes = {
-    testElement: docPropType('element', PropTypes.element, {
+    testElement: docPropType(PropTypes.element, 'element', {
       required: true,
     }),
   };
   it('documents a basic element propType', () => {
-    const elementPropType = docPropType('element', PropTypes.element);
+    const elementPropType = docPropType(PropTypes.element, 'element');
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeTruthy();
-    expect(elementPropType.$$reactDesc).toBeDefined();
-    expect(elementPropType.$$reactDesc).toMatchSnapshot();
+    expect(elementPropType.$$reactSchema).toBeDefined();
+    expect(elementPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required element propType', () => {
-    const elementPropType = docPropType('element', PropTypes.element, {
+    const elementPropType = docPropType(PropTypes.element, 'element', {
       required: true,
     });
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeFalsy();
-    expect(elementPropType.$$reactDesc).toBeDefined();
-    expect(elementPropType.$$reactDesc).toMatchSnapshot();
+    expect(elementPropType.$$reactSchema).toBeDefined();
+    expect(elementPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated element propType', () => {
-    const elementPropType = docPropType('element', PropTypes.element, {
+    const elementPropType = docPropType(PropTypes.element, 'element', {
       deprecated: 'deprecated. use something else',
     });
 
     expect(elementPropType).toBeDefined();
     expect(elementPropType.isRequired).toBeTruthy();
-    expect(elementPropType.$$reactDesc).toBeDefined();
-    expect(elementPropType.$$reactDesc).toMatchSnapshot();
+    expect(elementPropType.$$reactSchema).toBeDefined();
+    expect(elementPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -711,60 +711,60 @@ describe('instanceOf', () => {
   class FakeClass {}
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('instanceOf', PropTypes.instanceOf(FakeClass)),
+    test: docPropType(PropTypes.instanceOf(FakeClass), 'instanceOf'),
   };
   const FakeComponentRequired = props => <div>{props.testInstanceOf}</div>;
   FakeComponentRequired.propTypes = {
     testInstanceOf: docPropType(
-      'instanceOf', PropTypes.instanceOf(FakeClass), {
+      PropTypes.instanceOf(FakeClass), 'instanceOf', {
         required: true,
       }
     ),
   };
   it('documents a basic instanceOf propType', () => {
     const instanceOfPropType = docPropType(
-      'instanceOf', PropTypes.instanceOf(FakeClass)
+      PropTypes.instanceOf(FakeClass), 'instanceOf'
     );
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeTruthy();
-    expect(instanceOfPropType.$$reactDesc).toBeDefined();
-    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactSchema).toBeDefined();
+    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required instanceOf propType', () => {
     const instanceOfPropType = docPropType(
-      'instanceOf', PropTypes.instanceOf(FakeClass), {
+      PropTypes.instanceOf(FakeClass), 'instanceOf', {
         required: true,
       }
     );
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeFalsy();
-    expect(instanceOfPropType.$$reactDesc).toBeDefined();
-    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactSchema).toBeDefined();
+    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated instanceOf propType', () => {
     const instanceOfPropType = docPropType(
-      'instanceOf', PropTypes.instanceOf(FakeClass), {
+      PropTypes.instanceOf(FakeClass), 'instanceOf', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(instanceOfPropType).toBeDefined();
     expect(instanceOfPropType.isRequired).toBeTruthy();
-    expect(instanceOfPropType.$$reactDesc).toBeDefined();
-    expect(instanceOfPropType.$$reactDesc.validate.args.name).toEqual(
+    expect(instanceOfPropType.$$reactSchema).toBeDefined();
+    expect(instanceOfPropType.$$reactSchema.validate.args.name).toEqual(
       'FakeClass'
     );
-    expect(instanceOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(instanceOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -801,54 +801,54 @@ describe('oneOf', () => {
   const elements = ['News', 'Photos'];
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('oneOf', PropTypes.oneOf(elements)),
+    test: docPropType(PropTypes.oneOf(elements), 'oneOf'),
   };
   const FakeComponentRequired = props => <div>{props.testOneOf}</div>;
   FakeComponentRequired.propTypes = {
     testOneOf: docPropType(
-      'oneOf', PropTypes.oneOf(elements), {
+      PropTypes.oneOf(elements), 'oneOf', {
         required: true,
       }
     ),
   };
   it('documents a basic oneOf propType', () => {
     const oneOfPropType = docPropType(
-      'oneOf', PropTypes.oneOf(elements)
+      PropTypes.oneOf(elements), 'oneOf'
     );
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeTruthy();
-    expect(oneOfPropType.$$reactDesc).toBeDefined();
-    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfPropType.$$reactSchema).toBeDefined();
+    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required oneOf propType', () => {
     const oneOfPropType = docPropType(
-      'oneOf', PropTypes.oneOf(elements), {
+      PropTypes.oneOf(elements), 'oneOf', {
         required: true,
       }
     );
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeFalsy();
-    expect(oneOfPropType.$$reactDesc).toBeDefined();
-    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfPropType.$$reactSchema).toBeDefined();
+    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated oneOf propType', () => {
     const oneOfPropType = docPropType(
-      'oneOf', PropTypes.oneOf(elements), {
+      PropTypes.oneOf(elements), 'oneOf', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(oneOfPropType).toBeDefined();
     expect(oneOfPropType.isRequired).toBeTruthy();
-    expect(oneOfPropType.$$reactDesc).toBeDefined();
-    expect(oneOfPropType.$$reactDesc.validate.args.length).toEqual(2);
-    expect(oneOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfPropType.$$reactSchema).toBeDefined();
+    expect(oneOfPropType.$$reactSchema.validate.args.length).toEqual(2);
+    expect(oneOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -891,25 +891,25 @@ describe('oneOfType', () => {
   ];
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('oneOfType', PropTypes.oneOfType(elements)),
+    test: docPropType(PropTypes.oneOfType(elements), 'oneOfType'),
   };
   const FakeComponentRequired = props => <div>{props.testOneOfType}</div>;
   FakeComponentRequired.propTypes = {
     testOneOfType: docPropType(
-      'oneOfType', PropTypes.oneOfType(elements), {
+      PropTypes.oneOfType(elements), 'oneOfType', {
         required: true,
       }
     ),
   };
   it('documents a basic oneOfType propType', () => {
     const oneOfTypePropType = docPropType(
-      'oneOfType', PropTypes.oneOfType(elements)
+      PropTypes.oneOfType(elements), 'oneOfType'
     );
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeTruthy();
-    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
-    oneOfTypePropType.$$reactDesc.validate.args.forEach((arg) => {
+    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
+    oneOfTypePropType.$$reactSchema.validate.args.forEach((arg) => {
       if (arg.type === 'instanceOf') {
         expect(arg.args.name).toEqual(
           'FakeClass'
@@ -917,35 +917,35 @@ describe('oneOfType', () => {
       }
       expect(arg).toMatchSnapshot();
     });
-    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required oneOfType propType', () => {
     const oneOfTypePropType = docPropType(
-      'oneOfType', PropTypes.oneOfType(elements), {
+      PropTypes.oneOfType(elements), 'oneOfType', {
         required: true,
       }
     );
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeFalsy();
-    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
-    expect(oneOfTypePropType.$$reactDesc.validate.args.length).toEqual(4);
-    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
+    expect(oneOfTypePropType.$$reactSchema.validate.args.length).toEqual(4);
+    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated oneOfType propType', () => {
     const oneOfTypePropType = docPropType(
-      'oneOfType', PropTypes.oneOfType(elements), {
+      PropTypes.oneOfType(elements), 'oneOfType', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(oneOfTypePropType).toBeDefined();
     expect(oneOfTypePropType.isRequired).toBeTruthy();
-    expect(oneOfTypePropType.$$reactDesc).toBeDefined();
-    expect(oneOfTypePropType.$$reactDesc.validate.args.length).toEqual(4);
-    expect(oneOfTypePropType.$$reactDesc).toMatchSnapshot();
+    expect(oneOfTypePropType.$$reactSchema).toBeDefined();
+    expect(oneOfTypePropType.$$reactSchema.validate.args.length).toEqual(4);
+    expect(oneOfTypePropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -982,60 +982,60 @@ describe('arrayOf', () => {
   const element = PropTypes.number;
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('arrayOf', PropTypes.arrayOf(element)),
+    test: docPropType(PropTypes.arrayOf(element), 'arrayOf'),
   };
   const FakeComponentRequired = props => <div>{props.testArrayOf}</div>;
   FakeComponentRequired.propTypes = {
     testArrayOf: docPropType(
-      'arrayOf', PropTypes.arrayOf(element), {
+      PropTypes.arrayOf(element), 'arrayOf', {
         required: true,
       }
     ),
   };
   it('documents a basic arrayOf propType', () => {
     const arrayOfPropType = docPropType(
-      'arrayOf', PropTypes.arrayOf(element)
+      PropTypes.arrayOf(element), 'arrayOf'
     );
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeTruthy();
-    expect(arrayOfPropType.$$reactDesc).toBeDefined();
-    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactSchema).toBeDefined();
+    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required arrayOf propType', () => {
     const arrayOfPropType = docPropType(
-      'arrayOf', PropTypes.arrayOf(element), {
+      PropTypes.arrayOf(element), 'arrayOf', {
         required: true,
       }
     );
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeFalsy();
-    expect(arrayOfPropType.$$reactDesc).toBeDefined();
-    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactSchema).toBeDefined();
+    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated arrayOf propType', () => {
     const arrayOfPropType = docPropType(
-      'arrayOf', PropTypes.arrayOf(element), {
+      PropTypes.arrayOf(element), 'arrayOf', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(arrayOfPropType).toBeDefined();
     expect(arrayOfPropType.isRequired).toBeTruthy();
-    expect(arrayOfPropType.$$reactDesc).toBeDefined();
-    expect(arrayOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(arrayOfPropType.$$reactSchema).toBeDefined();
+    expect(arrayOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(arrayOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(arrayOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1072,60 +1072,60 @@ describe('objectOf', () => {
   const element = PropTypes.number;
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('objectOf', PropTypes.objectOf(element)),
+    test: docPropType(PropTypes.objectOf(element), 'objectOf'),
   };
   const FakeComponentRequired = props => <div>{props.testObjectOf}</div>;
   FakeComponentRequired.propTypes = {
     testObjectOf: docPropType(
-      'objectOf', PropTypes.objectOf(element), {
+      PropTypes.objectOf(element), 'objectOf', {
         required: true,
       }
     ),
   };
   it('documents a basic objectOf propType', () => {
     const objectOfPropType = docPropType(
-      'objectOf', PropTypes.objectOf(element)
+      PropTypes.objectOf(element), 'objectOf'
     );
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeTruthy();
-    expect(objectOfPropType.$$reactDesc).toBeDefined();
-    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactSchema).toBeDefined();
+    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required objectOf propType', () => {
     const objectOfPropType = docPropType(
-      'objectOf', PropTypes.objectOf(element), {
+      PropTypes.objectOf(element), 'objectOf', {
         required: true,
       }
     );
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeFalsy();
-    expect(objectOfPropType.$$reactDesc).toBeDefined();
-    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactSchema).toBeDefined();
+    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated objectOf propType', () => {
     const objectOfPropType = docPropType(
-      'objectOf', PropTypes.objectOf(element), {
+      PropTypes.objectOf(element), 'objectOf', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(objectOfPropType).toBeDefined();
     expect(objectOfPropType.isRequired).toBeTruthy();
-    expect(objectOfPropType.$$reactDesc).toBeDefined();
-    expect(objectOfPropType.$$reactDesc.validate.args.type).toEqual(
+    expect(objectOfPropType.$$reactSchema).toBeDefined();
+    expect(objectOfPropType.$$reactSchema.validate.args.type).toEqual(
       'number'
     );
-    expect(objectOfPropType.$$reactDesc).toMatchSnapshot();
+    expect(objectOfPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1182,69 +1182,69 @@ describe('shape', () => {
   };
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('shape', PropTypes.shape(element)),
+    test: docPropType(PropTypes.shape(element), 'shape'),
   };
   const FakeComponentRequired = props => <div>{props.testShape}</div>;
   FakeComponentRequired.propTypes = {
     testShape: docPropType(
-      'shape', PropTypes.shape(element), {
+      PropTypes.shape(element), 'shape', {
         required: true,
       }
     ),
   };
   it('documents a basic shape propType', () => {
     const shapePropType = docPropType(
-      'shape', PropTypes.shape(element)
+      PropTypes.shape(element), 'shape'
     );
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeTruthy();
-    expect(shapePropType.$$reactDesc).toBeDefined();
-    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactSchema).toBeDefined();
+    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactDesc).toMatchSnapshot();
+    expect(shapePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required shape propType', () => {
     const shapePropType = docPropType(
-      'shape', PropTypes.shape(element), {
+      PropTypes.shape(element), 'shape', {
         required: true,
       }
     );
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeFalsy();
-    expect(shapePropType.$$reactDesc).toBeDefined();
-    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactSchema).toBeDefined();
+    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactDesc).toMatchSnapshot();
+    expect(shapePropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated shape propType', () => {
     const shapePropType = docPropType(
-      'shape', PropTypes.shape(element), {
+      PropTypes.shape(element), 'shape', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(shapePropType).toBeDefined();
     expect(shapePropType.isRequired).toBeTruthy();
-    expect(shapePropType.$$reactDesc).toBeDefined();
-    expect(shapePropType.$$reactDesc.validate.args.color.type).toEqual(
+    expect(shapePropType.$$reactSchema).toBeDefined();
+    expect(shapePropType.$$reactSchema.validate.args.color.type).toEqual(
       'string'
     );
-    expect(shapePropType.$$reactDesc.validate.args.fontSize.type).toEqual(
+    expect(shapePropType.$$reactSchema.validate.args.fontSize.type).toEqual(
       'number'
     );
-    expect(shapePropType.$$reactDesc).toMatchSnapshot();
+    expect(shapePropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */
@@ -1319,60 +1319,60 @@ describe('custom', () => {
   };
   const FakeComponent = props => <div>{props.test}</div>;
   FakeComponent.propTypes = {
-    test: docPropType('custom', fakeFunc),
+    test: docPropType(fakeFunc, 'custom'),
   };
   const FakeComponentRequired = props => <div>{props.testCustom}</div>;
   FakeComponentRequired.propTypes = {
     testCustom: docPropType(
-      'custom', fakeFunc, {
+      fakeFunc, 'custom', {
         required: true,
       }
     ),
   };
   it('documents a basic custom propType', () => {
     const customPropType = docPropType(
-      'custom', fakeFunc
+      fakeFunc, 'custom'
     );
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactDesc).toBeDefined();
-    expect(customPropType.$$reactDesc.validate.name).toEqual(
+    expect(customPropType.$$reactSchema).toBeDefined();
+    expect(customPropType.$$reactSchema.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactDesc).toMatchSnapshot();
+    expect(customPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a required custom propType', () => {
     const customPropType = docPropType(
-      'custom', fakeFunc, {
+      fakeFunc, 'custom', {
         required: true,
       }
     );
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactDesc).toBeDefined();
-    expect(customPropType.$$reactDesc.validate.name).toEqual(
+    expect(customPropType.$$reactSchema).toBeDefined();
+    expect(customPropType.$$reactSchema.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactDesc).toMatchSnapshot();
+    expect(customPropType.$$reactSchema).toMatchSnapshot();
   });
 
   it('documents a deprecated custom propType', () => {
     const customPropType = docPropType(
-      'custom', fakeFunc, {
+      fakeFunc, 'custom', {
         deprecated: 'deprecated. use something else',
       }
     );
 
     expect(customPropType).toBeDefined();
     expect(customPropType.isRequired).toBeFalsy();
-    expect(customPropType.$$reactDesc).toBeDefined();
-    expect(customPropType.$$reactDesc.validate.name).toEqual(
+    expect(customPropType.$$reactSchema).toBeDefined();
+    expect(customPropType.$$reactSchema.validate.name).toEqual(
       'fakeFunc'
     );
-    expect(customPropType.$$reactDesc).toMatchSnapshot();
+    expect(customPropType.$$reactSchema).toMatchSnapshot();
   });
 
   /* eslint-disable no-unused-vars, no-console */

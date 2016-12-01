@@ -18,7 +18,7 @@ export default function getDocAsMarkdown(component) {
   }
   let properties = '';
   if (documentation.properties) {
-    properties = `\n\n### Properties\n\n| Property | Description | Format | Default Value | Required | Details |\n| ---- | ---- | ---- | ---- | ---- | ---- |`;
+    properties = '\n\n### Properties\n\n| Property | Description | Format | Default Value | Required | Details |\n| ---- | ---- | ---- | ---- | ---- | ---- |';
     documentation.properties.forEach((prop) => {
       let propDeprecatedNote = '';
       let propDeprecatedContent = '';

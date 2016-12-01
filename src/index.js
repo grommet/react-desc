@@ -1,15 +1,15 @@
-import docComponent from './docComponent';
 import docPropType from './docPropType';
 import getDocAsJSON from './getDocAsJSON';
 import getDocAsMarkdown from './getDocAsMarkdown';
 import PropTypes from './PropTypes';
+import schema from './schema';
 
-exports.docComponent = docComponent;
 exports.docPropType = docPropType;
 exports.getDocAsJSON = getDocAsJSON;
 exports.getDocAsMarkdown = getDocAsMarkdown;
 exports.PropTypes = PropTypes;
+exports.schema = schema;
 
 export default {
-  docComponent, docPropType, getDocAsJSON, getDocAsMarkdown, PropTypes,
+  docPropType, getDocAsJSON, getDocAsMarkdown, PropTypes, schema,
 };

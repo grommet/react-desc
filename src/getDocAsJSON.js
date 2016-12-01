@@ -38,10 +38,10 @@ function getFormat(validate) {
 function getPropTypeAsJson(propType, propName, defaultValue) {
   const {
     deprecated, format, required, ...extras
-  } = propType.$$reactDesc.options;
-  const { validate } = propType.$$reactDesc;
+  } = propType.$$reactSchema.options;
+  const { validate } = propType.$$reactSchema;
   const documentation = {
-    description: propType.$$reactDesc.description,
+    description: propType.$$reactSchema.description,
     name: propName,
   };
 
@@ -74,23 +74,14 @@ export default function getDocAsJSON(component) {
   const documentation = {
     name: component.displayName || component.name,
   };
-  if (component.$$reactDesc) {
-    documentation.description = component.$$reactDesc.description;
-
-    const { deprecated, ...extras } = component.$$reactDesc.options;
-    if (deprecated) {
-      documentation.deprecated = deprecated;
-    }
-
-    if (Object.keys(extras).length > 0) {
-      documentation.extras = extras;
-    }
+  if (component.$$reactSchema) {
+    Object.assign(documentation, component.$$reactSchema);
 
     if (component.propTypes) {
       const propTypes = [];
       Object.keys(component.propTypes).forEach((propName) => {
         const propType = component.propTypes[propName];
-        if (propType.$$reactDesc) {
+        if (propType.$$reactSchema) {
           propTypes.push(
             getPropTypeAsJson(
               propType, propName, component.defaultProps[propName]

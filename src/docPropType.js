@@ -45,7 +45,7 @@ function buildShapePropType(validate) {
   return PropTypes[validate.type](args);
 }
 
-export default function docPropType(description, validate, options = {}) {
+export default function docPropType(validate, description, options = {}) {
   if (!description) {
     throw new Error(
       'docPropType: description is required'
@@ -81,6 +81,6 @@ export default function docPropType(description, validate, options = {}) {
   if (required && propType.isRequired) {
     propType = propType.isRequired;
   }
-  propType.$$reactDesc = { description, validate, options };
+  propType.$$reactSchema = { description, validate, options };
   return propType;
 }

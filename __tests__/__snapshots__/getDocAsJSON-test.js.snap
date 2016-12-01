@@ -90,6 +90,7 @@ Object {
       "required": true,
     },
     Object {
+      "defaultValue": "abc",
       "deprecated": "use something else",
       "description": "testDeprecated",
       "format": "string",
@@ -119,9 +120,6 @@ Object {
 exports[`test documents an extra info documented component 1`] = `
 Object {
   "description": "component",
-  "extras": Object {
-    "usage": "import component  from \"grommet/components/Anchor\"",
-  },
   "name": "ExtraInfoComponent",
   "properties": Array [
     Object {
@@ -131,6 +129,7 @@ Object {
       "name": "test",
     },
   ],
+  "usage": "import component  from \"grommet/components/Anchor\"",
 }
 `;
 

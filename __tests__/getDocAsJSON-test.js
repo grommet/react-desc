@@ -1,7 +1,6 @@
 import React from 'react';
 import getDocAsJSON from '../src/getDocAsJSON';
-import docComponent from '../src/docComponent';
-import docPropType from '../src/docPropType';
+import schema from '../src/schema';
 import PropTypes from '../src/PropTypes';
 
 class FakeComponent {}
@@ -27,73 +26,75 @@ const complexShape = {
 };
 
 const DocumentedComponent = () => <div>fake</div>;
-DocumentedComponent.propTypes = {
-  test: docPropType('any', PropTypes.any),
-  test2: docPropType('array', PropTypes.array),
-  test3: docPropType(
-    'arrayOf', PropTypes.arrayOf(PropTypes.number)
-  ),
-  test4: docPropType('bool', PropTypes.bool),
-  test5: docPropType('custom', () => {}, {
-    format: 'XXX-XX-XXXX',
-  }),
-  test6: docPropType('element', PropTypes.element),
-  test7: docPropType('func', PropTypes.func),
-  test8: docPropType('instanceOf', PropTypes.instanceOf(FakeComponent)),
-  test9: docPropType('node', PropTypes.node),
-  test10: docPropType('number', PropTypes.number),
-  test11: docPropType('object', PropTypes.object),
-  test12: docPropType('objectOf', PropTypes.objectOf(PropTypes.number)),
-  test13: docPropType('oneOf', PropTypes.oneOf(['News', 'Photos'])),
-  test14: docPropType('oneOfType', PropTypes.oneOfType([
-    PropTypes.number, PropTypes.string,
-  ])),
-  test15: docPropType('symbol', PropTypes.symbol),
-  test16: docPropType('shape', PropTypes.shape(complexShape)),
-  testRequired: docPropType('testRequired', PropTypes.string, {
-    required: true,
-  }),
-  testDeprecated: docPropType('testDeprecated', PropTypes.string, {
-    deprecated: 'use something else',
-  }),
-  testExtra: docPropType('testExtra', PropTypes.string, {
-    usage: 'test5 = "abc"',
-  }),
-};
-DocumentedComponent.defaultProps = {
-  testExtra: 'abc',
-};
+
 const DeprecatedComponent = () => <div>deprecated</div>;
 DeprecatedComponent.propTypes = {
   testDeprecated: React.PropTypes.string,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
-/* eslint-disable react/prefer-es6-class */
+/* eslint-disable react/prefer-es6-class, react/prefer-stateless-function */
 const ExtraInfoComponent = React.createClass({
-  propTypes: {
-    test: docPropType('test', PropTypes.string),
-  },
-
-  getDefaultProps() {
-    return {
-      test: 'abc',
-    };
-  },
-
   render() {
     return (
       <div>fake</div>
     );
   },
 });
-/* eslint-enable react/prefer-es6-class */
+/* eslint-enable react/prefer-es6-class, react/prefer-stateless-function */
 
-docComponent('component', DocumentedComponent);
-docComponent('noPropType', NoPropTypeComponent);
-docComponent('component', DeprecatedComponent, {
+schema(DocumentedComponent, {
+  description: 'component',
+  props: {
+    test: [PropTypes.any, 'any'],
+    test2: [PropTypes.array, 'array'],
+    test3: [
+      PropTypes.arrayOf(PropTypes.number), 'arrayOf',
+    ],
+    test4: [PropTypes.bool, 'bool'],
+    test5: [() => {}, 'custom', {
+      format: 'XXX-XX-XXXX',
+    }],
+    test6: [PropTypes.element, 'element'],
+    test7: [PropTypes.func, 'func'],
+    test8: [PropTypes.instanceOf(FakeComponent), 'instanceOf'],
+    test9: [PropTypes.node, 'node'],
+    test10: [PropTypes.number, 'number'],
+    test11: [PropTypes.object, 'object'],
+    test12: [PropTypes.objectOf(PropTypes.number), 'objectOf'],
+    test13: [PropTypes.oneOf(['News', 'Photos']), 'oneOf'],
+    test14: [PropTypes.oneOfType([
+      PropTypes.number, PropTypes.string,
+    ]), 'oneOfType'],
+    test15: [PropTypes.symbol, 'symbol'],
+    test16: [PropTypes.shape(complexShape), 'shape'],
+    testRequired: [PropTypes.string, 'testRequired', {
+      required: true,
+    }],
+    testDeprecated: [PropTypes.string, 'testDeprecated', {
+      defaultProp: 'abc',
+      deprecated: 'use something else',
+    }],
+    testExtra: [PropTypes.string, 'testExtra', {
+      defaultProp: 'abc',
+      usage: 'test5 = "abc"',
+    }],
+    testNative: React.PropTypes.string,
+  },
+});
+schema(NoPropTypeComponent, {
+  description: 'noPropType',
+});
+schema(DeprecatedComponent, {
+  description: 'component',
   deprecated: 'use button instead',
 });
-docComponent('component', ExtraInfoComponent, {
+schema(ExtraInfoComponent, {
+  description: 'component',
+  props: {
+    test: [PropTypes.string, 'test', {
+      defaultProp: 'abc',
+    }],
+  },
   usage: 'import component  from "grommet/components/Anchor"',
 });
 
