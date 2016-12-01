@@ -18,10 +18,10 @@ component
 | **test10** | number | number |  | No |  |
 | **test11** | object | object |  | No |  |
 | **test12** | objectOf | { test: number, ... } |  | No |  |
-| **test13** | oneOf | News&#124;Photos |  | No |  |
-| **test14** | oneOfType | number&#124;string |  | No |  |
+| **test13** | oneOf | News,Photos |  | No |  |
+| **test14** | oneOfType | number,string |  | No |  |
 | **test15** | symbol | symbol |  | No |  |
-| **test16** | shape | {\"color\":\"string\",\"fontSize\":\"number\",\"one\":\"string&#124;number&#124;new FakeComponent(...)&#124;custom\",\"test\":\"new FakeComponent(...)\",\"test2\":{\"test3\":\"string\",\"test4\":{\"test5\":\"string\",\"test6\":\"number\",\"test7\":\"custom\",\"test8\":\"[string, ...]\"}}} |  | No |  |
+| **test16** | shape | {\"color\":\"string\",\"fontSize\":\"number\",\"one\":[\"string\",\"number\",\"new FakeComponent(...)\",\"custom\"],\"test\":\"new FakeComponent(...)\",\"test2\":{\"test3\":\"string\",\"test4\":{\"test5\":\"string\",\"test6\":\"number\",\"test7\":\"custom\",\"test8\":\"[string, ...]\"}}} |  | No |  |
 | **testRequired** | testRequired | string |  | Yes |  |
 | **~~testDeprecated~~** | testDeprecated | string |  | No | **Deprecated**: use something else |
 | **testExtra** | testExtra | string | abc | No |  |"
