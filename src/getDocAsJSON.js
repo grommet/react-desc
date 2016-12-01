@@ -24,17 +24,18 @@ function getFormat(validate) {
     case 'objectOf':
       return `{ test: ${validate.args.type}, ... }`;
     case 'oneOf':
-      return validate.args.join('&#124;');
+      return validate.args;
     case 'oneOfType':
-      return validate.args.reduce(
-        (prev, arg) => `${prev}${getFormat(arg)}&#124;`, ''
-      ).slice(0, -6);
+      return validate.args.map(
+        arg => getFormat(arg)
+      );
     case 'shape':
       return JSON.stringify(buildShapeFormat(validate));
     default:
       return validate.type ? validate.type : 'custom';
   }
 }
+
 function getPropTypeAsJson(propType, propName, defaultValue) {
   const {
     deprecated, format, required, ...extras
