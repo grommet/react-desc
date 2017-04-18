@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPropTypes from 'prop-types';
 
 import docPropType from '../src/docPropType';
 import PropTypes from '../src/PropTypes';
@@ -213,7 +214,7 @@ describe('func', () => {
     <div onClick={props.testFunc}>test</div>
   );
   FakeComponentRequired.propTypes = {
-    testFunc: React.PropTypes.bool.isRequired,
+    testFunc: ReactPropTypes.bool.isRequired,
   };
   it('documents a basic func propType', () => {
     const funcPropType = docPropType(PropTypes.func, 'func');

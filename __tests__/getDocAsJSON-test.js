@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPropTypes from 'prop-types';
 import getDocAsJSON from '../src/getDocAsJSON';
 import schema from '../src/schema';
 import PropTypes from '../src/PropTypes';
@@ -29,7 +30,7 @@ const DocumentedComponent = () => <div>fake</div>;
 
 const DeprecatedComponent = () => <div>deprecated</div>;
 DeprecatedComponent.propTypes = {
-  testDeprecated: React.PropTypes.string,
+  testDeprecated: ReactPropTypes.string,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
 /* eslint-disable react/prefer-es6-class, react/prefer-stateless-function */
@@ -78,7 +79,7 @@ schema(DocumentedComponent, {
       defaultProp: 'abc',
       usage: 'test5 = "abc"',
     }],
-    testNative: React.PropTypes.string,
+    testNative: ReactPropTypes.string,
   },
 });
 schema(NoPropTypeComponent, {

@@ -21,6 +21,7 @@ npm install react-desc
 // Anchor.js
 
 import React from 'react';
+import ReactPropTypes from 'prop-types';
 import { schema, PropTypes } from 'react-desc';
 
 const Anchor = (props) => {
@@ -41,7 +42,7 @@ schema(Anchor, {
     href: [PropTypes.string, 'link location.', {
       deprecated: 'use path instead'
     }],
-    id: React.PropTypes.string, // this will be ignored for documentation purposes
+    id: ReactPropTypes.string, // this will be ignored for documentation purposes
     title: [
       (prop, propName) => { return ... }, 'title used for accessibility.', {
         format: 'XXX-XX'
