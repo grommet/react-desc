@@ -4,6 +4,9 @@ function getArgs(args) {
   return args.map((arg) => {
     if (arg.type && PropTypes[arg.type]) {
       if (arg.args) {
+        if (arg.type === 'shape') {
+          return buildShapePropType(arg);
+        }
         return PropTypes[arg.type](arg.args);
       }
       return PropTypes[arg.type];
