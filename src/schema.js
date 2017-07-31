@@ -41,15 +41,11 @@ export default function schema(component, metadata = {}) {
   }
 
   /* eslint-disable no-param-reassign */
-  if (process.env.NODE_ENV !== 'production') {
-    // only add documentation if it is not production
-    component.$$reactDesc = reactDesc;
-    if (propTypes) {
-      component.propTypes = propTypes;
-    }
+  component.$$reactDesc = reactDesc;
+  if (propTypes) {
+    component.propTypes = propTypes;
   }
 
-  // but always add default props :)
   if (!component.defaultProps && defaultProps) {
     component.defaultProps = defaultProps;
   }
