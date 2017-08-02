@@ -67,6 +67,11 @@ export default function docPropType(validate, description, options = {}) {
         type = PropTypes[validate.type](args);
       } else if (validate.type === 'shape') {
         type = buildShapePropType(validate);
+      } else if (validate.type === 'arrayOf' && validate.args.type === 'oneOfType') {
+        const args = getArgs(validate.args.args);
+        const v = { ...validate };
+        v.args = PropTypes[validate.args.type](args);
+        type = getPropType(v);
       } else {
         type = getPropType(validate);
       }
