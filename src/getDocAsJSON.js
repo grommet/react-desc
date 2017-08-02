@@ -85,7 +85,7 @@ export default function getDocAsJSON(component) {
         if (propType.$$reactDesc) {
           propTypes.push(
             getPropTypeAsJson(
-              propType, propName, component.defaultProps[propName]
+              propType, propName, (component.defaultProps || {})[propName]
             )
           );
         }
