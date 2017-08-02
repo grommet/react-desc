@@ -16,6 +16,9 @@ export default function schema(component, metadata = {}) {
   if (metadata.props) {
     Object.keys(metadata.props).forEach((propName) => {
       const prop = metadata.props[propName];
+      if (!propTypes) {
+        propTypes = {};
+      }
       // if it is an array it means that it is a react schema instance
       if (Array.isArray(prop)) {
         const validate = prop[0];
@@ -30,9 +33,6 @@ export default function schema(component, metadata = {}) {
           delete options.defaultProp;
         }
 
-        if (!propTypes) {
-          propTypes = {};
-        }
         propTypes[propName] = docPropType(validate, description, options);
       } else {
         propTypes[propName] = prop;
