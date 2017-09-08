@@ -46,8 +46,9 @@ export default function schema(component, metadata = {}) {
     component.propTypes = propTypes;
   }
 
-  if (!component.defaultProps && defaultProps) {
-    component.defaultProps = defaultProps;
+  /* merge props */
+  if (defaultProps) {
+    component.defaultProps = { ...component.defaultProps, ...defaultProps };
   }
   /* eslint-enable no-param-reassign */
 }
