@@ -33,15 +33,14 @@ DeprecatedComponent.propTypes = {
   testDeprecated: ReactPropTypes.string,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
-/* eslint-disable react/prefer-es6-class, react/prefer-stateless-function */
-const ExtraInfoComponent = React.createClass({
+
+class ExtraInfoComponent {
   render() {
     return (
       <div>fake</div>
     );
-  },
-});
-/* eslint-enable react/prefer-es6-class, react/prefer-stateless-function */
+  }
+}
 
 schema(DocumentedComponent, {
   description: 'component',
