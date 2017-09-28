@@ -1,6 +1,6 @@
 {
   "name": "react-desc",
-  "version": "1.3.6",
+  "version": "1.4.0",
   "description": "Add an schema to your React components based on React PropTypes.",
   "authors": [
     "Alan Souza",
@@ -17,13 +17,13 @@
     "url": "https://github.com/grommet/react-desc.git"
   },
   "peerDependencies": {
-    "react": ">= 15.5.4 < 16 || 16.x",
-    "prop-types": "^15.5.8"
+    "prop-types": "^15.5.8",
+    "react": ">= 15.5.4 < 16 || 16.x"
   },
   "devDependencies": {
     "babel-cli": "^6.5.2",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.16.0",
     "eslint": "^3.8.1",
     "eslint-config-airbnb": "^12.0.0",
