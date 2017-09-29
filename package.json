@@ -1,6 +1,6 @@
 {
   "name": "react-desc",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Add an schema to your React components based on React PropTypes.",
   "authors": [
     "Alan Souza",
@@ -17,7 +17,7 @@
     "url": "https://github.com/grommet/react-desc.git"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.8",
+    "prop-types": "15.x",
     "react": ">= 15.5.4 < 16 || 16.x"
   },
   "devDependencies": {
