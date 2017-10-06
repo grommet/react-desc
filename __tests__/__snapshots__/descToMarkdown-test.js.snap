@@ -1,4 +1,6 @@
-exports[`test documents a basic documented component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`documents a basic documented component 1`] = `
 "## DocumentedComponent Component
 component
 
@@ -8,7 +10,7 @@ component
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | **test** | any | any |  | No |  |
 | **test2** | array | array |  | No |  |
-| **test3** | arrayOf | [number, ...] |  | No |  |
+| **test3** | arrayOf | [number] |  | No |  |
 | **test4** | bool | boolean |  | No |  |
 | **test5** | custom | XXX-XX-XXXX |  | No |  |
 | **test6** | element | element |  | No |  |
@@ -18,22 +20,22 @@ component
 | **test10** | number | number |  | No |  |
 | **test11** | object | object |  | No |  |
 | **test12** | objectOf | { test: number, ... } |  | No |  |
-| **test13** | oneOf | News,Photos |  | No |  |
-| **test14** | oneOfType | number,string |  | No |  |
+| **test13** | oneOf | News<br/>Photos |  | No |  |
+| **test14** | oneOfType | number<br/>string |  | No |  |
 | **test15** | symbol | symbol |  | No |  |
-| **test16** | shape | {\"color\":\"string\",\"fontSize\":\"number\",\"one\":[\"string\",\"number\",\"new FakeComponent(...)\",\"custom\"],\"test\":\"new FakeComponent(...)\",\"test2\":{\"test3\":\"string\",\"test4\":{\"test5\":\"string\",\"test6\":\"number\",\"test7\":\"custom\",\"test8\":\"[string, ...]\"}}} |  | No |  |
+| **test16** | shape | {<br/>  color: string,<br/>  fontSize: number,<br/>  one: <br/>    string<br/>    number<br/>    new FakeComponent(...)<br/>    custom,<br/>  test: new FakeComponent(...),<br/>  test2: <br/>    {<br/>      test3: string,<br/>      test4: <br/>        {<br/>          test5: string,<br/>          test6: number,<br/>          test7: custom,<br/>          test8: [string]<br/>        }<br/>    }<br/>} |  | No |  |
 | **testRequired** | testRequired | string |  | Yes |  |
 | **~~testDeprecated~~** | testDeprecated | string |  | No | **Deprecated**: use something else |
 | **testExtra** | testExtra | string | abc | No |  |"
 `;
 
-exports[`test documents a deprecated documented component 1`] = `
+exports[`documents a deprecated documented component 1`] = `
 "## ~~DeprecatedComponent~~ Component
 ### Deprecated: use button instead
 component"
 `;
 
-exports[`test documents an extra info documented component 1`] = `
+exports[`documents an extra info documented component 1`] = `
 "## ExtraInfoComponent Component
 component
 
@@ -44,9 +46,9 @@ component
 | **test** | test | string | abc | No |  |"
 `;
 
-exports[`test documents empty doc for component without reactDesc 1`] = `"## FakeComponent Component"`;
+exports[`documents empty doc for component without reactDesc 1`] = `"## FakeComponent Component"`;
 
-exports[`test documents empty propType doc for component 1`] = `
+exports[`documents empty propType doc for component 1`] = `
 "## NoPropTypeComponent Component
 noPropType"
 `;

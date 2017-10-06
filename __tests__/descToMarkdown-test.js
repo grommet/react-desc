@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPropTypes from 'prop-types';
-import getDocAsJSON from '../src/getDocAsJSON';
-import schema from '../src/schema';
+import descToMarkdown from '../src/descToMarkdown';
+import decorate from '../src/decorate';
 import PropTypes from '../src/PropTypes';
 
 class FakeComponent {}
@@ -42,7 +42,7 @@ class ExtraInfoComponent {
   }
 }
 
-schema(DocumentedComponent, {
+decorate(DocumentedComponent, {
   description: 'component',
   props: {
     test: [PropTypes.any, 'any'],
@@ -71,24 +71,22 @@ schema(DocumentedComponent, {
       required: true,
     }],
     testDeprecated: [PropTypes.string, 'testDeprecated', {
-      defaultProp: 'abc',
       deprecated: 'use something else',
     }],
     testExtra: [PropTypes.string, 'testExtra', {
       defaultProp: 'abc',
       usage: 'test5 = "abc"',
     }],
-    testNative: ReactPropTypes.string,
   },
 });
-schema(NoPropTypeComponent, {
+decorate(NoPropTypeComponent, {
   description: 'noPropType',
 });
-schema(DeprecatedComponent, {
+decorate(DeprecatedComponent, {
   description: 'component',
   deprecated: 'use button instead',
 });
-schema(ExtraInfoComponent, {
+decorate(ExtraInfoComponent, {
   description: 'component',
   props: {
     test: [PropTypes.string, 'test', {
@@ -100,31 +98,31 @@ schema(ExtraInfoComponent, {
 
 it('fails for missing component property', () => {
   expect(() => {
-    getDocAsJSON(undefined);
-  }).toThrowError('getDocAsJSON: component is required');
+    descToMarkdown(undefined);
+  }).toThrowError('react-desc: component is required');
 });
 
 it('documents empty doc for component without reactDesc', () => {
-  const documentation = getDocAsJSON(FakeComponent);
+  const documentation = descToMarkdown(FakeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents empty propType doc for component', () => {
-  const documentation = getDocAsJSON(NoPropTypeComponent);
+  const documentation = descToMarkdown(NoPropTypeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a basic documented component', () => {
-  const documentation = getDocAsJSON(DocumentedComponent);
+  const documentation = descToMarkdown(DocumentedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a deprecated documented component', () => {
-  const documentation = getDocAsJSON(DeprecatedComponent);
+  const documentation = descToMarkdown(DeprecatedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents an extra info documented component', () => {
-  const documentation = getDocAsJSON(ExtraInfoComponent);
+  const documentation = descToMarkdown(ExtraInfoComponent);
   expect(documentation).toMatchSnapshot();
 });

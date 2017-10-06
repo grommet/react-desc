@@ -1,11 +1,11 @@
-import getDocAsJSON from './getDocAsJSON';
+import descToJSON from './descToJSON';
 
-export default function getDocAsMarkdown(component) {
+export default function descToMarkdown(component) {
   if (!component) {
-    throw new Error('getDocAsMarkdown: component is required');
+    throw new Error('react-desc: component is required');
   }
 
-  const documentation = getDocAsJSON(component);
+  const documentation = descToJSON(component);
   let description = '';
   if (documentation.description) {
     description = `\n${documentation.description}`;
@@ -26,7 +26,7 @@ export default function getDocAsMarkdown(component) {
         propDeprecatedNote = '~~';
         propDeprecatedContent = `**Deprecated**: ${prop.deprecated}`;
       }
-      properties += `\n| **${propDeprecatedNote}${prop.name}${propDeprecatedNote}** | ${prop.description} | ${prop.format} | ${prop.defaultValue || ''} | ${prop.required ? 'Yes' : 'No'} | ${propDeprecatedContent} |`;
+      properties += `\n| **${propDeprecatedNote}${prop.name}${propDeprecatedNote}** | ${prop.description} | ${prop.format.replace(/\n/g, '<br/>')} | ${prop.defaultValue || ''} | ${prop.required ? 'Yes' : 'No'} | ${propDeprecatedContent} |`;
     });
   }
   return `## ${deprecatedNote}${documentation.name}${deprecatedNote} Component${deprecatedContent}${description}${properties}`;

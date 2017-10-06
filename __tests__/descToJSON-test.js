@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPropTypes from 'prop-types';
-import getDocAsMarkdown from '../src/getDocAsMarkdown';
-import schema from '../src/schema';
+import descToJSON from '../src/descToJSON';
+import decorate from '../src/decorate';
 import PropTypes from '../src/PropTypes';
 
 class FakeComponent {}
@@ -24,6 +24,22 @@ const complexShape = {
       test8: PropTypes.arrayOf(PropTypes.string),
     }),
   }),
+  test9: PropTypes.oneOfType([
+    PropTypes.oneOf(['type1', 'type2']),
+    PropTypes.shape({
+      type: PropTypes.oneOf(['type1', 'type2']),
+      count: PropTypes.number,
+    }),
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.oneOf(['type1', 'type2']),
+        PropTypes.shape({
+          type: PropTypes.oneOf(['type1', 'type2']),
+          count: PropTypes.number,
+        }),
+      ]),
+    ),
+  ]),
 };
 
 const DocumentedComponent = () => <div>fake</div>;
@@ -42,7 +58,7 @@ class ExtraInfoComponent {
   }
 }
 
-schema(DocumentedComponent, {
+decorate(DocumentedComponent, {
   description: 'component',
   props: {
     test: [PropTypes.any, 'any'],
@@ -71,22 +87,24 @@ schema(DocumentedComponent, {
       required: true,
     }],
     testDeprecated: [PropTypes.string, 'testDeprecated', {
+      defaultProp: 'abc',
       deprecated: 'use something else',
     }],
     testExtra: [PropTypes.string, 'testExtra', {
       defaultProp: 'abc',
       usage: 'test5 = "abc"',
     }],
+    testNative: ReactPropTypes.string,
   },
 });
-schema(NoPropTypeComponent, {
+decorate(NoPropTypeComponent, {
   description: 'noPropType',
 });
-schema(DeprecatedComponent, {
+decorate(DeprecatedComponent, {
   description: 'component',
   deprecated: 'use button instead',
 });
-schema(ExtraInfoComponent, {
+decorate(ExtraInfoComponent, {
   description: 'component',
   props: {
     test: [PropTypes.string, 'test', {
@@ -98,31 +116,31 @@ schema(ExtraInfoComponent, {
 
 it('fails for missing component property', () => {
   expect(() => {
-    getDocAsMarkdown(undefined);
-  }).toThrowError('getDocAsMarkdown: component is required');
+    descToJSON(undefined);
+  }).toThrowError('react-desc: component is required');
 });
 
 it('documents empty doc for component without reactDesc', () => {
-  const documentation = getDocAsMarkdown(FakeComponent);
+  const documentation = descToJSON(FakeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents empty propType doc for component', () => {
-  const documentation = getDocAsMarkdown(NoPropTypeComponent);
+  const documentation = descToJSON(NoPropTypeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a basic documented component', () => {
-  const documentation = getDocAsMarkdown(DocumentedComponent);
+  const documentation = descToJSON(DocumentedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a deprecated documented component', () => {
-  const documentation = getDocAsMarkdown(DeprecatedComponent);
+  const documentation = descToJSON(DeprecatedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents an extra info documented component', () => {
-  const documentation = getDocAsMarkdown(ExtraInfoComponent);
+  const documentation = descToJSON(ExtraInfoComponent);
   expect(documentation).toMatchSnapshot();
 });
