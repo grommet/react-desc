@@ -1,4 +1,6 @@
-exports[`test documents a basic documented component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`documents a basic documented component 1`] = `
 Object {
   "description": "component",
   "name": "DocumentedComponent",
@@ -15,7 +17,7 @@ Object {
     },
     Object {
       "description": "arrayOf",
-      "format": "[number, ...]",
+      "format": "[number]",
       "name": "test3",
     },
     Object {
@@ -65,18 +67,14 @@ Object {
     },
     Object {
       "description": "oneOf",
-      "format": Array [
-        "News",
-        "Photos",
-      ],
+      "format": "News
+Photos",
       "name": "test13",
     },
     Object {
       "description": "oneOfType",
-      "format": Array [
-        "number",
-        "string",
-      ],
+      "format": "number
+string",
       "name": "test14",
     },
     Object {
@@ -86,7 +84,46 @@ Object {
     },
     Object {
       "description": "shape",
-      "format": "{\"color\":\"string\",\"fontSize\":\"number\",\"one\":[\"string\",\"number\",\"new FakeComponent(...)\",\"custom\"],\"test\":\"new FakeComponent(...)\",\"test2\":{\"test3\":\"string\",\"test4\":{\"test5\":\"string\",\"test6\":\"number\",\"test7\":\"custom\",\"test8\":\"[string, ...]\"}}}",
+      "format": "{
+  color: string,
+  fontSize: number,
+  one: 
+    string
+    number
+    new FakeComponent(...)
+    custom,
+  test: new FakeComponent(...),
+  test2: 
+    {
+      test3: string,
+      test4: 
+        {
+          test5: string,
+          test6: number,
+          test7: custom,
+          test8: [string]
+        }
+    },
+  test9: 
+    type1
+    type2
+    {
+      type: 
+        type1
+        type2,
+      count: number
+    }
+    [
+      type1
+      type2
+      {
+        type: 
+          type1
+          type2,
+        count: number
+      }
+    ]
+}",
       "name": "test16",
     },
     Object {
@@ -106,7 +143,7 @@ Object {
       "defaultValue": "abc",
       "description": "testExtra",
       "extras": Object {
-        "usage": "test5 = \"abc\"",
+        "usage": "test5 = \\"abc\\"",
       },
       "format": "string",
       "name": "testExtra",
@@ -115,7 +152,7 @@ Object {
 }
 `;
 
-exports[`test documents a deprecated documented component 1`] = `
+exports[`documents a deprecated documented component 1`] = `
 Object {
   "deprecated": "use button instead",
   "description": "component",
@@ -123,7 +160,7 @@ Object {
 }
 `;
 
-exports[`test documents an extra info documented component 1`] = `
+exports[`documents an extra info documented component 1`] = `
 Object {
   "description": "component",
   "name": "ExtraInfoComponent",
@@ -135,17 +172,17 @@ Object {
       "name": "test",
     },
   ],
-  "usage": "import component  from \"grommet/components/Anchor\"",
+  "usage": "import component  from \\"grommet/components/Anchor\\"",
 }
 `;
 
-exports[`test documents empty doc for component without reactDesc 1`] = `
+exports[`documents empty doc for component without reactDesc 1`] = `
 Object {
   "name": "FakeComponent",
 }
 `;
 
-exports[`test documents empty propType doc for component 1`] = `
+exports[`documents empty propType doc for component 1`] = `
 Object {
   "description": "noPropType",
   "name": "NoPropTypeComponent",

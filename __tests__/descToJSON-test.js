@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPropTypes from 'prop-types';
-import getDocAsJSON from '../src/getDocAsJSON';
-import schema from '../src/schema';
+import descToJSON from '../src/descToJSON';
+import decorate from '../src/decorate';
 import PropTypes from '../src/PropTypes';
 
 class FakeComponent {}
@@ -16,7 +16,7 @@ const complexShape = {
   ]),
   test: PropTypes.instanceOf(FakeComponent),
   test2: PropTypes.shape({
-    test3: PropTypes.string,
+    test3: PropTypes.string.isRequired,
     test4: PropTypes.shape({
       test5: PropTypes.string,
       test6: PropTypes.number,
@@ -24,13 +24,29 @@ const complexShape = {
       test8: PropTypes.arrayOf(PropTypes.string),
     }),
   }),
+  test9: PropTypes.oneOfType([
+    PropTypes.oneOf(['type1', 'type2']),
+    PropTypes.shape({
+      type: PropTypes.oneOf(['type1', 'type2']),
+      count: PropTypes.number,
+    }),
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.oneOf(['type1', 'type2']),
+        PropTypes.shape({
+          type: PropTypes.oneOf(['type1', 'type2']),
+          count: PropTypes.number,
+        }),
+      ]),
+    ),
+  ]),
 };
 
 const DocumentedComponent = () => <div>fake</div>;
 
-const DeprecatedComponent = () => <div>deprecated</div>;
+const DeprecatedComponent = ({ testDeprecated }) => <div>{testDeprecated}</div>;
 DeprecatedComponent.propTypes = {
-  testDeprecated: ReactPropTypes.string,
+  testDeprecated: ReactPropTypes.string.isRequired,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
 
@@ -42,7 +58,7 @@ class ExtraInfoComponent {
   }
 }
 
-schema(DocumentedComponent, {
+decorate(DocumentedComponent, {
   description: 'component',
   props: {
     test: [PropTypes.any, 'any'],
@@ -81,14 +97,14 @@ schema(DocumentedComponent, {
     testNative: ReactPropTypes.string,
   },
 });
-schema(NoPropTypeComponent, {
+decorate(NoPropTypeComponent, {
   description: 'noPropType',
 });
-schema(DeprecatedComponent, {
+decorate(DeprecatedComponent, {
   description: 'component',
   deprecated: 'use button instead',
 });
-schema(ExtraInfoComponent, {
+decorate(ExtraInfoComponent, {
   description: 'component',
   props: {
     test: [PropTypes.string, 'test', {
@@ -100,31 +116,31 @@ schema(ExtraInfoComponent, {
 
 it('fails for missing component property', () => {
   expect(() => {
-    getDocAsJSON(undefined);
-  }).toThrowError('getDocAsJSON: component is required');
+    descToJSON(undefined);
+  }).toThrowError('react-desc: component is required');
 });
 
 it('documents empty doc for component without reactDesc', () => {
-  const documentation = getDocAsJSON(FakeComponent);
+  const documentation = descToJSON(FakeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents empty propType doc for component', () => {
-  const documentation = getDocAsJSON(NoPropTypeComponent);
+  const documentation = descToJSON(NoPropTypeComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a basic documented component', () => {
-  const documentation = getDocAsJSON(DocumentedComponent);
+  const documentation = descToJSON(DocumentedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents a deprecated documented component', () => {
-  const documentation = getDocAsJSON(DeprecatedComponent);
+  const documentation = descToJSON(DeprecatedComponent);
   expect(documentation).toMatchSnapshot();
 });
 
 it('documents an extra info documented component', () => {
-  const documentation = getDocAsJSON(ExtraInfoComponent);
+  const documentation = descToJSON(ExtraInfoComponent);
   expect(documentation).toMatchSnapshot();
 });
