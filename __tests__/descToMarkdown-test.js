@@ -28,9 +28,9 @@ const complexShape = {
 
 const DocumentedComponent = () => <div>fake</div>;
 
-const DeprecatedComponent = () => <div>deprecated</div>;
+const DeprecatedComponent = ({ testDeprecated }) => <div>{testDeprecated}</div>;
 DeprecatedComponent.propTypes = {
-  testDeprecated: ReactPropTypes.string,
+  testDeprecated: ReactPropTypes.string.isRequired,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
 

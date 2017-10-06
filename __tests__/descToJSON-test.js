@@ -16,7 +16,7 @@ const complexShape = {
   ]),
   test: PropTypes.instanceOf(FakeComponent),
   test2: PropTypes.shape({
-    test3: PropTypes.string,
+    test3: PropTypes.string.isRequired,
     test4: PropTypes.shape({
       test5: PropTypes.string,
       test6: PropTypes.number,
@@ -44,9 +44,9 @@ const complexShape = {
 
 const DocumentedComponent = () => <div>fake</div>;
 
-const DeprecatedComponent = () => <div>deprecated</div>;
+const DeprecatedComponent = ({ testDeprecated }) => <div>{testDeprecated}</div>;
 DeprecatedComponent.propTypes = {
-  testDeprecated: ReactPropTypes.string,
+  testDeprecated: ReactPropTypes.string.isRequired,
 };
 const NoPropTypeComponent = () => <div>fake</div>;
 

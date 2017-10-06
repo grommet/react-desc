@@ -46,16 +46,11 @@ const decoratePropType = (propType, description, options = {}) => {
     throw new Error('react-desc: propType is required');
   }
 
-  const { required } = options;
-  const convertedType = convertPropType(propType);
-  // clone function
-  let result = convertedType.bind(null);
-  if (convertedType.isRequired) {
-    result.isRequired = convertedType.isRequired.bind(null);
+  let result = convertPropType(propType);
+  if (propType.required === true || options.required) {
+    result = result.isRequired;
   }
-  if (required && propType.isRequired) {
-    result = propType.isRequired;
-  }
+  result = result.bind(null);
   result.$$reactDesc = { description, propType, options };
   return result;
 };

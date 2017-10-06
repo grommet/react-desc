@@ -117,8 +117,8 @@ export default function descToJSON(component) {
         if (propType.$$reactDesc) {
           propTypes.push(
             propTypeAsJson(
-              propType.$$reactDesc, propName, (component.defaultProps || {})[propName]
-            )
+              propType.$$reactDesc, propName, (component.defaultProps || {})[propName],
+            ),
           );
         }
       });
