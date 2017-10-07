@@ -1,11 +1,11 @@
 import descToJSON from './descToJSON';
 
-export default function descToMarkdown(component) {
+export default function descToMarkdown(component, reactDesc) {
   if (!component) {
     throw new Error('react-desc: component is required');
   }
 
-  const documentation = descToJSON(component);
+  const documentation = descToJSON(component, reactDesc);
   let description = '';
   if (documentation.description) {
     description = `\n${documentation.description}`;

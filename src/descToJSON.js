@@ -68,13 +68,9 @@ const propTypeFormat = (propType, prefix = '') => {
   return result;
 };
 
-const propTypeAsJson = (reactDesc, propName, defaultValue) => {
-  const {
-    deprecated, format, required, ...extras
-  } = reactDesc.options;
-  const { propType } = reactDesc;
+const propTypeAsJson = (propType, propName, defaultValue) => {
   const documentation = {
-    description: reactDesc.description,
+    ...propType.reactDesc,
     name: propName,
   };
 
@@ -82,24 +78,12 @@ const propTypeAsJson = (reactDesc, propName, defaultValue) => {
     documentation.defaultValue = defaultValue;
   }
 
-  if (deprecated) {
-    documentation.deprecated = deprecated;
-  }
-
-  if (required) {
-    documentation.required = required;
-  }
-
-  if (Object.keys(extras).length > 0) {
-    documentation.extras = extras;
-  }
-
-  documentation.format = format || propTypeFormat(propType);
+  documentation.format = documentation.format || propTypeFormat(propType);
 
   return documentation;
 };
 
-export default function descToJSON(component) {
+export default function descToJSON(component, reactDesc) {
   if (!component) {
     throw new Error('react-desc: component is required');
   }
@@ -107,20 +91,19 @@ export default function descToJSON(component) {
   const documentation = {
     name: component.displayName || component.name,
   };
-  if (component.$$reactDesc) {
-    Object.assign(documentation, component.$$reactDesc);
+  if (reactDesc) {
+    Object.assign(documentation, reactDesc);
+    delete documentation.propTypes;
 
-    if (component.propTypes) {
+    if (reactDesc.propTypes) {
       const propTypes = [];
-      Object.keys(component.propTypes).forEach((propName) => {
-        const propType = component.propTypes[propName];
-        if (propType.$$reactDesc) {
-          propTypes.push(
-            propTypeAsJson(
-              propType.$$reactDesc, propName, (component.defaultProps || {})[propName],
-            ),
-          );
-        }
+      Object.keys(reactDesc.propTypes).forEach((propName) => {
+        const propType = reactDesc.propTypes[propName];
+        propTypes.push(
+          propTypeAsJson(
+            propType, propName, (component.defaultProps || {})[propName],
+          ),
+        );
       });
       if (propTypes.length > 0) {
         documentation.properties = propTypes;
