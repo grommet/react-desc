@@ -83,16 +83,16 @@ const propTypeAsJson = (propType, propName, defaultValue) => {
   return documentation;
 };
 
-export default function descToJSON(component, reactDesc) {
+export default function descToJSON(component, reactDesc = {}) {
   if (!component) {
     throw new Error('react-desc: component is required');
   }
 
   const documentation = {
     name: component.displayName || component.name,
+    ...reactDesc,
   };
   if (reactDesc) {
-    Object.assign(documentation, reactDesc);
     delete documentation.propTypes;
 
     if (reactDesc.propTypes) {
