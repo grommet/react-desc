@@ -122,6 +122,7 @@ export default AnchorWithSchema;
     * **deprecated(value)**: function that receives a string with the deprecation message.
     * **toJSON()**: function that returns the component schema as a JSON object.
     * **toMarkdown()**: function that returns the component schema as a Markdown string.
+    * **usage(value)**: function that receives a string with the component usage example.
 
 * `PropTypes`
 
