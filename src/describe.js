@@ -40,6 +40,12 @@ const convertPropType = (propType) => {
   return result;
 };
 
+const reactDescApiFunctions = [
+  'description',
+  'deprecated',
+  'usage',
+];
+
 export default function describe(component) {
   if (!component) {
     throw new Error('react-desc: component is required');
@@ -74,7 +80,7 @@ export default function describe(component) {
         return descToJSON.bind(null, component, target);
       } else if (prop === 'toMarkdown') {
         return descToMarkdown.bind(null, component, target);
-      } else if (prop === 'description' || prop === 'deprecated') {
+      } else if (reactDescApiFunctions.indexOf(prop) >= 0) {
         /* eslint-disable no-param-reassign */
         return (value) => {
           const newTarget = { ...target };

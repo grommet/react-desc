@@ -141,6 +141,7 @@ string",
       "name": "testDeprecated",
     },
   ],
+  "usage": "test",
 }
 `;
 
@@ -313,6 +314,7 @@ string",
       "name": "testDeprecated",
     },
   ],
+  "usage": "test",
 }
 `;
 

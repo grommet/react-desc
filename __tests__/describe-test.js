@@ -43,7 +43,7 @@ const complexShape = {
 };
 
 const Component = () => <div>fake</div>;
-const DocumentedComponent = describe(Component).description('component');
+const DocumentedComponent = describe(Component).description('component').usage('test');
 DocumentedComponent.propTypes = {
   test: PropTypes.any.description('any'),
   test2: PropTypes.array.description('array'),
