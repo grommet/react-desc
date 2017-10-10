@@ -1,15 +1,16 @@
+const reactDescApiFunctions = [
+  'description',
+  'deprecated',
+  'format',
+  'defaultProp',
+];
 const handler = {
   get: (target, prop) => {
     /* eslint-disable no-param-reassign */
     if (!target.reactDesc) {
       target.reactDesc = {};
     }
-    if (
-      prop === 'description' ||
-      prop === 'deprecated' ||
-      prop === 'format' ||
-      prop === 'defaultProp'
-    ) {
+    if (reactDescApiFunctions.indexOf(prop) >= 0) {
       return (value) => {
         target.reactDesc[prop] = value;
         return new Proxy(target, handler);
