@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns a deprecated documented json 1`] = `
+Object {
+  "deprecated": "yes it is deprecated",
+  "description": "component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "any",
+      "format": "any",
+      "name": "test",
+    },
+    Object {
+      "description": "array",
+      "format": "array",
+      "name": "test2",
+    },
+    Object {
+      "description": "arrayOf",
+      "format": "[number]",
+      "name": "test3",
+    },
+    Object {
+      "description": "bool",
+      "format": "boolean",
+      "name": "test4",
+    },
+    Object {
+      "description": "custom",
+      "format": "XXX-XX-XXXX",
+      "name": "test5",
+    },
+    Object {
+      "description": "element",
+      "format": "element",
+      "name": "test6",
+    },
+    Object {
+      "description": "func",
+      "format": "function",
+      "name": "test7",
+    },
+    Object {
+      "description": "instanceOf",
+      "format": "new FakeComponent(...)",
+      "name": "test8",
+    },
+    Object {
+      "description": "node",
+      "format": "node",
+      "name": "test9",
+    },
+    Object {
+      "description": "number",
+      "format": "number",
+      "name": "test10",
+    },
+    Object {
+      "description": "object",
+      "format": "object",
+      "name": "test11",
+    },
+    Object {
+      "description": "objectOf",
+      "format": "{ test: number, ... }",
+      "name": "test12",
+    },
+    Object {
+      "description": "oneOf",
+      "format": "News
+Photos",
+      "name": "test13",
+    },
+    Object {
+      "description": "oneOfType",
+      "format": "number
+string",
+      "name": "test14",
+    },
+    Object {
+      "description": "symbol",
+      "format": "symbol",
+      "name": "test15",
+    },
+    Object {
+      "description": "shape",
+      "format": "{
+  color: string,
+  fontSize: number,
+  one: 
+    string
+    number
+    new FakeComponent(...)
+    custom,
+  test: new FakeComponent(...),
+  test2: 
+    {
+      test3: string,
+      test4: 
+        {
+          test5: string,
+          test6: number,
+          test7: custom,
+          test8: [string]
+        }
+    },
+  test9: 
+    type1
+    type2
+    {
+      type: 
+        type1
+        type2,
+      count: number
+    }
+    [
+      type1
+      type2
+      {
+        type: 
+          type1
+          type2,
+        count: number
+      }
+    ]
+}",
+      "name": "test16",
+    },
+    Object {
+      "description": "testRequired",
+      "format": "string",
+      "name": "testRequired",
+      "required": true,
+    },
+    Object {
+      "defaultProp": "abc",
+      "deprecated": "use something else",
+      "description": "testRequired",
+      "format": "string",
+      "name": "testDeprecated",
+    },
+  ],
+}
+`;
+
+exports[`returns a deprecated documented markdown 1`] = `
+"## ~~Component~~ Component
+### Deprecated: yes it is deprecated
+component
+
+### Properties
+
+| Property | Description | Format | Default Value | Required | Details |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| **test** | any | any |  | No |  |
+| **test2** | array | array |  | No |  |
+| **test3** | arrayOf | [number] |  | No |  |
+| **test4** | bool | boolean |  | No |  |
+| **test5** | custom | XXX-XX-XXXX |  | No |  |
+| **test6** | element | element |  | No |  |
+| **test7** | func | function |  | No |  |
+| **test8** | instanceOf | new FakeComponent(...) |  | No |  |
+| **test9** | node | node |  | No |  |
+| **test10** | number | number |  | No |  |
+| **test11** | object | object |  | No |  |
+| **test12** | objectOf | { test: number, ... } |  | No |  |
+| **test13** | oneOf | News<br/>Photos |  | No |  |
+| **test14** | oneOfType | number<br/>string |  | No |  |
+| **test15** | symbol | symbol |  | No |  |
+| **test16** | shape | {<br/>  color: string,<br/>  fontSize: number,<br/>  one: <br/>    string<br/>    number<br/>    new FakeComponent(...)<br/>    custom,<br/>  test: new FakeComponent(...),<br/>  test2: <br/>    {<br/>      test3: string,<br/>      test4: <br/>        {<br/>          test5: string,<br/>          test6: number,<br/>          test7: custom,<br/>          test8: [string]<br/>        }<br/>    },<br/>  test9: <br/>    type1<br/>    type2<br/>    {<br/>      type: <br/>        type1<br/>        type2,<br/>      count: number<br/>    }<br/>    [<br/>      type1<br/>      type2<br/>      {<br/>        type: <br/>          type1<br/>          type2,<br/>        count: number<br/>      }<br/>    ]<br/>} |  | No |  |
+| **testRequired** | testRequired | string |  | Yes |  |
+| **~~testDeprecated~~** | testRequired | string |  | No | **Deprecated**: use something else |"
+`;
+
+exports[`returns a documented json 1`] = `
+Object {
+  "description": "component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "any",
+      "format": "any",
+      "name": "test",
+    },
+    Object {
+      "description": "array",
+      "format": "array",
+      "name": "test2",
+    },
+    Object {
+      "description": "arrayOf",
+      "format": "[number]",
+      "name": "test3",
+    },
+    Object {
+      "description": "bool",
+      "format": "boolean",
+      "name": "test4",
+    },
+    Object {
+      "description": "custom",
+      "format": "XXX-XX-XXXX",
+      "name": "test5",
+    },
+    Object {
+      "description": "element",
+      "format": "element",
+      "name": "test6",
+    },
+    Object {
+      "description": "func",
+      "format": "function",
+      "name": "test7",
+    },
+    Object {
+      "description": "instanceOf",
+      "format": "new FakeComponent(...)",
+      "name": "test8",
+    },
+    Object {
+      "description": "node",
+      "format": "node",
+      "name": "test9",
+    },
+    Object {
+      "description": "number",
+      "format": "number",
+      "name": "test10",
+    },
+    Object {
+      "description": "object",
+      "format": "object",
+      "name": "test11",
+    },
+    Object {
+      "description": "objectOf",
+      "format": "{ test: number, ... }",
+      "name": "test12",
+    },
+    Object {
+      "description": "oneOf",
+      "format": "News
+Photos",
+      "name": "test13",
+    },
+    Object {
+      "description": "oneOfType",
+      "format": "number
+string",
+      "name": "test14",
+    },
+    Object {
+      "description": "symbol",
+      "format": "symbol",
+      "name": "test15",
+    },
+    Object {
+      "description": "shape",
+      "format": "{
+  color: string,
+  fontSize: number,
+  one: 
+    string
+    number
+    new FakeComponent(...)
+    custom,
+  test: new FakeComponent(...),
+  test2: 
+    {
+      test3: string,
+      test4: 
+        {
+          test5: string,
+          test6: number,
+          test7: custom,
+          test8: [string]
+        }
+    },
+  test9: 
+    type1
+    type2
+    {
+      type: 
+        type1
+        type2,
+      count: number
+    }
+    [
+      type1
+      type2
+      {
+        type: 
+          type1
+          type2,
+        count: number
+      }
+    ]
+}",
+      "name": "test16",
+    },
+    Object {
+      "description": "testRequired",
+      "format": "string",
+      "name": "testRequired",
+      "required": true,
+    },
+    Object {
+      "defaultProp": "abc",
+      "deprecated": "use something else",
+      "description": "testRequired",
+      "format": "string",
+      "name": "testDeprecated",
+    },
+  ],
+}
+`;
+
+exports[`returns a documented markdown 1`] = `
+"## Component Component
+component
+
+### Properties
+
+| Property | Description | Format | Default Value | Required | Details |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| **test** | any | any |  | No |  |
+| **test2** | array | array |  | No |  |
+| **test3** | arrayOf | [number] |  | No |  |
+| **test4** | bool | boolean |  | No |  |
+| **test5** | custom | XXX-XX-XXXX |  | No |  |
+| **test6** | element | element |  | No |  |
+| **test7** | func | function |  | No |  |
+| **test8** | instanceOf | new FakeComponent(...) |  | No |  |
+| **test9** | node | node |  | No |  |
+| **test10** | number | number |  | No |  |
+| **test11** | object | object |  | No |  |
+| **test12** | objectOf | { test: number, ... } |  | No |  |
+| **test13** | oneOf | News<br/>Photos |  | No |  |
+| **test14** | oneOfType | number<br/>string |  | No |  |
+| **test15** | symbol | symbol |  | No |  |
+| **test16** | shape | {<br/>  color: string,<br/>  fontSize: number,<br/>  one: <br/>    string<br/>    number<br/>    new FakeComponent(...)<br/>    custom,<br/>  test: new FakeComponent(...),<br/>  test2: <br/>    {<br/>      test3: string,<br/>      test4: <br/>        {<br/>          test5: string,<br/>          test6: number,<br/>          test7: custom,<br/>          test8: [string]<br/>        }<br/>    },<br/>  test9: <br/>    type1<br/>    type2<br/>    {<br/>      type: <br/>        type1<br/>        type2,<br/>      count: number<br/>    }<br/>    [<br/>      type1<br/>      type2<br/>      {<br/>        type: <br/>          type1<br/>          type2,<br/>        count: number<br/>      }<br/>    ]<br/>} |  | No |  |
+| **testRequired** | testRequired | string |  | Yes |  |
+| **~~testDeprecated~~** | testRequired | string |  | No | **Deprecated**: use something else |"
+`;

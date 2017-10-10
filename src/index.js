@@ -1,23 +1,10 @@
-import descToJSON from './descToJSON';
-import descToMarkdown from './descToMarkdown';
 import PropTypes from './PropTypes';
-import decorate from './decorate';
+import describe from './describe';
 
 exports.PropTypes = PropTypes;
-exports.decorate = decorate;
-exports.descToJSON = descToJSON;
-exports.descToMarkdown = descToMarkdown;
-// backwards compatible
-exports.schema = decorate;
-exports.getDocAsJSON = descToJSON;
-exports.getDocAsMarkdown = descToMarkdown;
+exports.describe = describe;
 
 export default {
-  decorate,
-  descToJSON,
-  descToMarkdown,
+  describe,
   PropTypes,
-  schema: decorate,
-  getDocAsJSON: descToJSON,
-  getDocAsMarkdown: descToMarkdown,
 };

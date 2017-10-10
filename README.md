@@ -22,7 +22,7 @@ npm install react-desc
 
 import React from 'react';
 import ReactPropTypes from 'prop-types';
-import { schema, PropTypes } from 'react-desc';
+import { describe, PropTypes } from 'react-desc';
 
 const Anchor = (props) => {
   const { path, ...rest } = props;
@@ -31,30 +31,17 @@ const Anchor = (props) => {
   );
 };
 
-schema(Anchor, {
-  description: 'A text link',
-  props: {
-    path: [
-      PropTypes.string, 'React-router path to navigate to when clicked', {
-        required: true
-      }
-    ],
-    href: [PropTypes.string, 'link location.', {
-      deprecated: 'use path instead'
-    }],
-    id: ReactPropTypes.string, // this will be ignored for documentation purposes
-    title: [
-      (prop, propName) => { return ... }, 'title used for accessibility.', {
-        format: 'XXX-XX'
-      }
-    ],
-    target: [PropTypes.string, 'target link location.', {
-      defaultProp: '_blank'
-    }]
-  }
-});
+const AnchorWithSchema = describe(Anchor).description('A text link');
 
-export default Anchor;
+AnchorWithSchema.propTypes = {
+  path: PropTypes.string.describe('React-router path to navigate to when clicked').isRequired,
+  href: PropTypes.string.describe('link location').deprecated('use path instead'),
+  id: ReactPropTypes.string, // this will be ignored for documentation purposes
+  title: PropTypes.custom(() => {}).description('title used for accessibility').format('XXX-XX'),
+  target: PropTypes.string.describe('target link location').defaultProp('_blank'),
+};
+
+export default AnchorWithSchema;
 ```
 
 ### Accessing documentation
@@ -62,10 +49,9 @@ export default Anchor;
 * JSON output
 
   ```javascript
-    import { getDocAsJSON } from 'react-desc';
     import Anchor from './Anchor';
 
-    const documentation = getDocAsJSON(Anchor);
+    const documentation = Anchor.toJSON();
   ```
 
   Expected output:
@@ -105,10 +91,9 @@ export default Anchor;
 * Markdown output
 
   ```javascript
-    import { getDocAsJSON } from 'react-desc';
     import Anchor from './Anchor';
 
-    const documentation = getDocAsMarkdown(Anchor);
+    const documentation = Anchor.toMarkDown();
   ```
 
   Expected output:
@@ -129,51 +114,24 @@ export default Anchor;
 
 ## API
 
-* `schema(component, schema)`
+* `describe(component)`
 
-  Documents a ReactJS component where schema is a required object with metadata
-  about the component.
+  Creates a proxy to the actual react component with support for the following functions:
 
-  Schema known attributes are:
-
-    * **description**: required string with the component description.
-    * **props**: optional object with the properties in the following format:
-
-        ```
-          {
-            propName: [
-              PropTypes.string, 'description', {
-                required: true
-              }
-            ]
-          }
-        ```
-
-        Use a regular React.PropType if you want to skip schema for a given
-        property.
-    * **deprecated**: optional string with the deprecation message.
-
-* `docPropType(validate, description, options)`
-
-   Documents a propType where description is a required explanation about the property. Validate is the PropType which is required to be an instance from `react-desc`, **not** from `react`. The reason is that react desc project needs to augment the react PropType with the documentation for the given component that allow it to work without an AST parser.
-
-   Options are:
-
-    * **deprecated**: optional string with the deprecation message.
-    * **required**: optional boolean that indicates whether the property is required or not.
-    * **format**: optional string that defines the propType format. It can be useful when used in conjuction with custom propType validation function.
-
-* `getDocAsJSON(component)`
-
-  Returns a JSON object with the documentation for the given component.
-
-* `getDocAsMarkdown(component)`
-
-  Returns a Markdown string with the documentation for the given component.
+    * **description(value)**: function that receives a string with the component description.
+    * **deprecated(value)**: function that receives a string with the deprecation message.
+    * **toJSON()**: function that returns the component schema as a JSON object.
+    * **toMarkdown()**: function that returns the component schema as a Markdown string.
 
 * `PropTypes`
 
-  Wrapper around the React propTypes, all properties are supported. See all options [here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html).
+  Proxy around the React propTypes, all properties are supported. See all options [here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html).
+  This proxy supports the following functions:
+
+    * **defaultProp(value)**: function that receives a value that represents the default prop.
+    * **description(value)**: function that receives a string with the PropType description.
+    * **deprecated(value)**: function that receives a string with the deprecation message.
+    * **format(value)**: function that receives a string with the PropTypex format.
 
 ## Why not [react-docgen](https://github.com/reactjs/react-docgen)?
 
@@ -188,7 +146,3 @@ react-docgen is a great project but it relies on an AST parser to generate docum
   }
   ```
 * Allow internal comments for properties without it showing up in the documentation
-
-## Limitations
-
-`react-docgen` base documentation on comments, which are automatically removed by most bundling tools out there (e.g. webpack). This is not the case with `react-desc`. We augment the propTypes object with documentation and this can affect the size of your bundle. We recommend you to use [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types) to remove unnecessary propTypes from production build, which is a good idea anyways.
