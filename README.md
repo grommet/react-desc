@@ -31,7 +31,7 @@ const Anchor = (props) => {
   );
 };
 
-const AnchorWithSchema = describe(Anchor).description('A text link');
+export const AnchorWithSchema = describe(Anchor).description('A text link');
 
 AnchorWithSchema.propTypes = {
   path: PropTypes.string.describe('React-router path to navigate to when clicked').isRequired,
@@ -41,7 +41,7 @@ AnchorWithSchema.propTypes = {
   target: PropTypes.string.describe('target link location').defaultProp('_blank'),
 };
 
-export default AnchorWithSchema;
+export default Anchor;
 ```
 
 ### Accessing documentation
@@ -49,9 +49,9 @@ export default AnchorWithSchema;
 * JSON output
 
   ```javascript
-    import Anchor from './Anchor';
+    import { AnchorWithSchema } from './Anchor';
 
-    const documentation = Anchor.toJSON();
+    const documentation = AnchorWithSchema.toJSON();
   ```
 
   Expected output:

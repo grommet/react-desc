@@ -89,7 +89,7 @@ export default function describe(component) {
         };
         /* eslint-enable no-param-reassign */
       }
-      return component;
+      return prop ? component[prop] : component;
     },
   };
   return new Proxy({ propTypes: {} }, handler);
