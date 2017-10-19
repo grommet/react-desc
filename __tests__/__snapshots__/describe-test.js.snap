@@ -146,32 +146,202 @@ string",
 `;
 
 exports[`returns a deprecated documented markdown 1`] = `
-"## ~~Component~~ Component
-### Deprecated: yes it is deprecated
+"## ~~Component~~ (yes it is deprecated)
 component
 
-### Properties
+## Usage
 
-| Property | Description | Format | Default Value | Required | Details |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| **test** | any | any |  | No |  |
-| **test2** | array | array |  | No |  |
-| **test3** | arrayOf | [number] |  | No |  |
-| **test4** | bool | boolean |  | No |  |
-| **test5** | custom | XXX-XX-XXXX |  | No |  |
-| **test6** | element | element |  | No |  |
-| **test7** | func | function |  | No |  |
-| **test8** | instanceOf | new FakeComponent(...) |  | No |  |
-| **test9** | node | node |  | No |  |
-| **test10** | number | number |  | No |  |
-| **test11** | object | object |  | No |  |
-| **test12** | objectOf | { test: number, ... } |  | No |  |
-| **test13** | oneOf | News<br/>Photos |  | No |  |
-| **test14** | oneOfType | number<br/>string |  | No |  |
-| **test15** | symbol | symbol |  | No |  |
-| **test16** | shape | {<br/>  color: string,<br/>  fontSize: number,<br/>  one: <br/>    string<br/>    number<br/>    new FakeComponent(...)<br/>    custom,<br/>  test: new FakeComponent(...),<br/>  test2: <br/>    {<br/>      test3: string,<br/>      test4: <br/>        {<br/>          test5: string,<br/>          test6: number,<br/>          test7: custom,<br/>          test8: [string]<br/>        }<br/>    },<br/>  test9: <br/>    type1<br/>    type2<br/>    {<br/>      type: <br/>        type1<br/>        type2,<br/>      count: number<br/>    }<br/>    [<br/>      type1<br/>      type2<br/>      {<br/>        type: <br/>          type1<br/>          type2,<br/>        count: number<br/>      }<br/>    ]<br/>} |  | No |  |
-| **testRequired** | testRequired | string |  | Yes |  |
-| **~~testDeprecated~~** | testRequired | string |  | No | **Deprecated**: use something else |"
+\`\`\`javascript
+test
+\`\`\`
+
+## Properties
+
+**test**
+
+any
+
+\`\`\`
+any
+\`\`\`
+
+**test2**
+
+array
+
+\`\`\`
+array
+\`\`\`
+
+**test3**
+
+arrayOf
+
+\`\`\`
+[number]
+\`\`\`
+
+**test4**
+
+bool
+
+\`\`\`
+boolean
+\`\`\`
+
+**test5**
+
+custom
+
+\`\`\`
+XXX-XX-XXXX
+\`\`\`
+
+**test6**
+
+element
+
+\`\`\`
+element
+\`\`\`
+
+**test7**
+
+func
+
+\`\`\`
+function
+\`\`\`
+
+**test8**
+
+instanceOf
+
+\`\`\`
+new FakeComponent(...)
+\`\`\`
+
+**test9**
+
+node
+
+\`\`\`
+node
+\`\`\`
+
+**test10**
+
+number
+
+\`\`\`
+number
+\`\`\`
+
+**test11**
+
+object
+
+\`\`\`
+object
+\`\`\`
+
+**test12**
+
+objectOf
+
+\`\`\`
+{ test: number, ... }
+\`\`\`
+
+**test13**
+
+oneOf
+
+\`\`\`
+News
+Photos
+\`\`\`
+
+**test14**
+
+oneOfType
+
+\`\`\`
+number
+string
+\`\`\`
+
+**test15**
+
+symbol
+
+\`\`\`
+symbol
+\`\`\`
+
+**test16**
+
+shape
+
+\`\`\`
+{
+  color: string,
+  fontSize: number,
+  one: 
+    string
+    number
+    new FakeComponent(...)
+    custom,
+  test: new FakeComponent(...),
+  test2: 
+    {
+      test3: string,
+      test4: 
+        {
+          test5: string,
+          test6: number,
+          test7: custom,
+          test8: [string]
+        }
+    },
+  test9: 
+    type1
+    type2
+    {
+      type: 
+        type1
+        type2,
+      count: number
+    }
+    [
+      type1
+      type2
+      {
+        type: 
+          type1
+          type2,
+        count: number
+      }
+    ]
+}
+\`\`\`
+
+**testRequired**
+
+Required. testRequired
+
+\`\`\`
+string
+\`\`\`
+
+**~~testDeprecated~~** (use something else)
+
+testRequired Defaults to \`abc\`.
+
+\`\`\`
+string
+\`\`\`
+  "
 `;
 
 exports[`returns a documented json 1`] = `
@@ -319,29 +489,200 @@ string",
 `;
 
 exports[`returns a documented markdown 1`] = `
-"## Component Component
+"## Component
 component
 
-### Properties
+## Usage
 
-| Property | Description | Format | Default Value | Required | Details |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| **test** | any | any |  | No |  |
-| **test2** | array | array |  | No |  |
-| **test3** | arrayOf | [number] |  | No |  |
-| **test4** | bool | boolean |  | No |  |
-| **test5** | custom | XXX-XX-XXXX |  | No |  |
-| **test6** | element | element |  | No |  |
-| **test7** | func | function |  | No |  |
-| **test8** | instanceOf | new FakeComponent(...) |  | No |  |
-| **test9** | node | node |  | No |  |
-| **test10** | number | number |  | No |  |
-| **test11** | object | object |  | No |  |
-| **test12** | objectOf | { test: number, ... } |  | No |  |
-| **test13** | oneOf | News<br/>Photos |  | No |  |
-| **test14** | oneOfType | number<br/>string |  | No |  |
-| **test15** | symbol | symbol |  | No |  |
-| **test16** | shape | {<br/>  color: string,<br/>  fontSize: number,<br/>  one: <br/>    string<br/>    number<br/>    new FakeComponent(...)<br/>    custom,<br/>  test: new FakeComponent(...),<br/>  test2: <br/>    {<br/>      test3: string,<br/>      test4: <br/>        {<br/>          test5: string,<br/>          test6: number,<br/>          test7: custom,<br/>          test8: [string]<br/>        }<br/>    },<br/>  test9: <br/>    type1<br/>    type2<br/>    {<br/>      type: <br/>        type1<br/>        type2,<br/>      count: number<br/>    }<br/>    [<br/>      type1<br/>      type2<br/>      {<br/>        type: <br/>          type1<br/>          type2,<br/>        count: number<br/>      }<br/>    ]<br/>} |  | No |  |
-| **testRequired** | testRequired | string |  | Yes |  |
-| **~~testDeprecated~~** | testRequired | string |  | No | **Deprecated**: use something else |"
+\`\`\`javascript
+test
+\`\`\`
+
+## Properties
+
+**test**
+
+any
+
+\`\`\`
+any
+\`\`\`
+
+**test2**
+
+array
+
+\`\`\`
+array
+\`\`\`
+
+**test3**
+
+arrayOf
+
+\`\`\`
+[number]
+\`\`\`
+
+**test4**
+
+bool
+
+\`\`\`
+boolean
+\`\`\`
+
+**test5**
+
+custom
+
+\`\`\`
+XXX-XX-XXXX
+\`\`\`
+
+**test6**
+
+element
+
+\`\`\`
+element
+\`\`\`
+
+**test7**
+
+func
+
+\`\`\`
+function
+\`\`\`
+
+**test8**
+
+instanceOf
+
+\`\`\`
+new FakeComponent(...)
+\`\`\`
+
+**test9**
+
+node
+
+\`\`\`
+node
+\`\`\`
+
+**test10**
+
+number
+
+\`\`\`
+number
+\`\`\`
+
+**test11**
+
+object
+
+\`\`\`
+object
+\`\`\`
+
+**test12**
+
+objectOf
+
+\`\`\`
+{ test: number, ... }
+\`\`\`
+
+**test13**
+
+oneOf
+
+\`\`\`
+News
+Photos
+\`\`\`
+
+**test14**
+
+oneOfType
+
+\`\`\`
+number
+string
+\`\`\`
+
+**test15**
+
+symbol
+
+\`\`\`
+symbol
+\`\`\`
+
+**test16**
+
+shape
+
+\`\`\`
+{
+  color: string,
+  fontSize: number,
+  one: 
+    string
+    number
+    new FakeComponent(...)
+    custom,
+  test: new FakeComponent(...),
+  test2: 
+    {
+      test3: string,
+      test4: 
+        {
+          test5: string,
+          test6: number,
+          test7: custom,
+          test8: [string]
+        }
+    },
+  test9: 
+    type1
+    type2
+    {
+      type: 
+        type1
+        type2,
+      count: number
+    }
+    [
+      type1
+      type2
+      {
+        type: 
+          type1
+          type2,
+        count: number
+      }
+    ]
+}
+\`\`\`
+
+**testRequired**
+
+Required. testRequired
+
+\`\`\`
+string
+\`\`\`
+
+**~~testDeprecated~~** (use something else)
+
+testRequired Defaults to \`abc\`.
+
+\`\`\`
+string
+\`\`\`
+  "
 `;
