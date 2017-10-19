@@ -65,7 +65,9 @@ DocumentedComponent.propTypes = {
   test16: PropTypes.shape(complexShape).description('shape'),
   testRequired: PropTypes.string.description('testRequired').isRequired,
   testDeprecated: (
-    PropTypes.string.description('testRequired').defaultProp('abc').deprecated('use something else')
+    PropTypes.string.description('testRequired').defaultValue('abc').deprecated(
+      'use something else',
+    )
   ),
   testNative: ReactPropTypes.string,
 };

@@ -38,7 +38,7 @@ AnchorWithSchema.propTypes = {
   href: PropTypes.string.describe('link location').deprecated('use path instead'),
   id: ReactPropTypes.string, // this will be ignored for documentation purposes
   title: PropTypes.custom(() => {}).description('title used for accessibility').format('XXX-XX'),
-  target: PropTypes.string.describe('target link location').defaultProp('_blank'),
+  target: PropTypes.string.describe('target link location').defaultValue('_blank'),
 };
 
 export default Anchor;
@@ -129,7 +129,7 @@ export default Anchor;
   Proxy around the React propTypes, all properties are supported. See all options [here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html).
   This proxy supports the following functions:
 
-    * **defaultProp(value)**: function that receives a value that represents the default prop.
+    * **defaultValue(value)**: function that receives a value that represents the default prop.
     * **description(value)**: function that receives a string with the PropType description.
     * **deprecated(value)**: function that receives a string with the deprecation message.
     * **format(value)**: function that receives a string with the PropTypex format.

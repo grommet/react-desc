@@ -2,7 +2,7 @@ const reactDescApiFunctions = [
   'description',
   'deprecated',
   'format',
-  'defaultProp',
+  'defaultValue',
 ];
 const handler = {
   get: (target, prop) => {

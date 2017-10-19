@@ -18,19 +18,19 @@ ${code}`
   ) : '';
 }
 
-function getDefaultProp(defaultProp) {
-  const defaultPropString = typeof defaultProp === 'object' ?
-    JSON.stringify(defaultProp, undefined, 2) : defaultProp;
+function getDefaultValue(defaultValue) {
+  const defaultValueString = typeof defaultValue === 'object' ?
+    JSON.stringify(defaultValue, undefined, 2) : defaultValue;
 
-  return ` Defaults to \`${defaultPropString}\`.`;
+  return ` Defaults to \`${defaultValueString}\`.`;
 }
 
 function getProperties({ properties }) {
   const props = properties.map(
-    ({ defaultProp, deprecated, description, format, name, required }) => (`
+    ({ defaultValue, deprecated, description, format, name, required }) => (`
 ${deprecated ? `**~~${name}~~**` : `**${name}**`}${deprecated ? ` (${deprecated})` : ''}
 
-${required ? 'Required. ' : ''}${description}${defaultProp ? getDefaultProp(defaultProp) : ''}
+${required ? 'Required. ' : ''}${description}${defaultValue ? getDefaultValue(defaultValue) : ''}
 
 ${code}
 ${format}
