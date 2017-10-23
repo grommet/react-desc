@@ -43,7 +43,19 @@ const complexShape = {
 };
 
 const Component = () => <div>fake</div>;
-const DocumentedComponent = describe(Component).description('component').usage('test');
+const DocumentedComponent = describe(Component)
+  .availableAt([
+    {
+      badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
+      url: 'https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js',
+    },
+    {
+      badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
+      url: 'https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js',
+    },
+  ])
+  .description('component')
+  .usage('test');
 DocumentedComponent.propTypes = {
   test: PropTypes.any.description('any'),
   test2: PropTypes.array.description('array'),

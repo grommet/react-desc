@@ -41,6 +41,7 @@ const convertPropType = (propType) => {
 };
 
 const reactDescApiFunctions = [
+  'availableAt',
   'description',
   'deprecated',
   'usage',

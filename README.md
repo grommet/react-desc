@@ -31,7 +31,14 @@ const Anchor = (props) => {
   );
 };
 
-export const AnchorWithSchema = describe(Anchor).description('A text link');
+export const AnchorWithSchema = describe(Anchor)
+  .availableAt([
+    {
+      badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
+      url: 'https://codesandbox.io/s/github/grommet/grommet-site?initialpath=anchor&amp;module=%2Fscreens%2FAnchor.js',
+    },
+  ])
+  .description('A text link');
 
 AnchorWithSchema.propTypes = {
   path: PropTypes.string.describe('React-router path to navigate to when clicked').isRequired,
@@ -118,6 +125,7 @@ export default Anchor;
 
   Creates a proxy to the actual react component with support for the following functions:
 
+    * **availableAt([{ badge: string, url: string }])**: function that receives an object or an array of objects that will render where the component is available.
     * **description(value)**: function that receives a string with the component description.
     * **deprecated(value)**: function that receives a string with the deprecation message.
     * **toJSON()**: function that returns the component schema as a JSON object.

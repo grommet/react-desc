@@ -2,6 +2,16 @@
 
 exports[`returns a deprecated documented json 1`] = `
 Object {
+  "availableAt": Array [
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js",
+    },
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js",
+    },
+  ],
   "deprecated": "yes it is deprecated",
   "description": "component",
   "name": "Component",
@@ -149,6 +159,7 @@ exports[`returns a deprecated documented markdown 1`] = `
 "## ~~Component~~ (yes it is deprecated)
 component
 
+[![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js)
 ## Usage
 
 \`\`\`javascript
@@ -346,6 +357,16 @@ string
 
 exports[`returns a documented json 1`] = `
 Object {
+  "availableAt": Array [
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js",
+    },
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js",
+    },
+  ],
   "description": "component",
   "name": "Component",
   "properties": Array [
@@ -492,6 +513,7 @@ exports[`returns a documented markdown 1`] = `
 "## Component
 component
 
+[![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js)
 ## Usage
 
 \`\`\`javascript

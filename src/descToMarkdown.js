@@ -2,6 +2,25 @@ import descToJSON from './descToJSON';
 
 const code = '```';
 
+function parseAvailableAt({ badge, url }) {
+  return (
+    `[![](${badge})](${url})`
+  );
+}
+
+function getAvailableAt({ availableAt }) {
+  if (!availableAt) {
+    return '';
+  }
+  let availableAtStr;
+  if (Array.isArray(availableAt)) {
+    availableAtStr = availableAt.map(currentAvailable => parseAvailableAt(currentAvailable)).join(' ');
+  } else {
+    availableAtStr = parseAvailableAt(availableAt);
+  }
+  return `\n${availableAtStr}`;
+}
+
 function getHeader({ description, deprecated, name }) {
   return `## ${deprecated ? `~~${name}~~` : name}${deprecated ? ` (${deprecated})` : ''}
 ${description}\n`;
@@ -48,8 +67,9 @@ export default function descToMarkdown(component, reactDesc) {
   }
 
   const documentation = descToJSON(component, reactDesc);
+  const availableAt = getAvailableAt(documentation);
   const header = getHeader(documentation);
   const usage = getUsage(documentation);
   const properties = getProperties(documentation);
-  return `${header}${usage}${properties}`;
+  return `${header}${availableAt}${usage}${properties}`;
 }
