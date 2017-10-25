@@ -44,7 +44,7 @@ function getDefaultValue(defaultValue) {
   return ` Defaults to \`${defaultValueString}\`.`;
 }
 
-function getProperties({ properties }) {
+function getProperties({ properties = [] }) {
   const props = properties.map(
     ({ defaultValue, deprecated, description, format, name, required }) => (`
 ${deprecated ? `**~~${name}~~**` : `**${name}**`}${deprecated ? ` (${deprecated})` : ''}

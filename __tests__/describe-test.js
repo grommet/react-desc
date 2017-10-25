@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import ReactPropTypes from 'prop-types';
 import describe from '../src/describe';
 import PropTypes from '../src/PropTypes';
@@ -56,7 +57,21 @@ const DocumentedComponent = describe(Component)
   ])
   .description('component')
   .usage('test');
-DocumentedComponent.propTypes = {
+const DeprecatedComponent = describe(Component)
+  .deprecated('yes it is deprecated')
+  .availableAt([
+    {
+      badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
+      url: 'https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js',
+    },
+    {
+      badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
+      url: 'https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js',
+    },
+  ])
+  .description('component')
+  .usage('test');
+const allPropTypes = {
   test: PropTypes.any.description('any'),
   test2: PropTypes.array.description('array'),
   test3: PropTypes.arrayOf(PropTypes.number).description('arrayOf'),
@@ -77,12 +92,14 @@ DocumentedComponent.propTypes = {
   test16: PropTypes.shape(complexShape).description('shape'),
   testRequired: PropTypes.string.description('testRequired').isRequired,
   testDeprecated: (
-    PropTypes.string.description('testRequired').defaultValue('abc').deprecated(
+    PropTypes.string.description('testDeprecated').defaultValue('abc').deprecated(
       'use something else',
     )
   ),
   testNative: ReactPropTypes.string,
 };
+DocumentedComponent.propTypes = allPropTypes;
+DeprecatedComponent.propTypes = allPropTypes;
 
 it('fails for missing component', () => {
   expect(() => {
@@ -95,7 +112,7 @@ it('returns a documented json', () => {
 });
 
 it('returns a deprecated documented json', () => {
-  expect(DocumentedComponent.deprecated('yes it is deprecated').toJSON()).toMatchSnapshot();
+  expect(DeprecatedComponent.toJSON()).toMatchSnapshot();
 });
 
 it('returns a documented markdown', () => {
@@ -104,4 +121,9 @@ it('returns a documented markdown', () => {
 
 it('returns a deprecated documented markdown', () => {
   expect(DocumentedComponent.deprecated('yes it is deprecated').toMarkdown()).toMatchSnapshot();
+});
+
+it('can be used as a React component', () => {
+  const component = renderer.create(<DocumentedComponent />);
+  expect(component.toJSON()).toMatchSnapshot();
 });

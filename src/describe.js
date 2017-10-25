@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import descToJSON from './descToJSON';
 import descToMarkdown from './descToMarkdown';
@@ -40,58 +41,51 @@ const convertPropType = (propType) => {
   return result;
 };
 
-const reactDescApiFunctions = [
-  'availableAt',
-  'description',
-  'deprecated',
-  'usage',
-];
-
-export default function describe(component) {
-  if (!component) {
+export default function describe(Component) {
+  if (!Component) {
     throw new Error('react-desc: component is required');
   }
-  const handler = {
-    set: (target, prop, value) => {
-      /* eslint-disable no-param-reassign */
-      if (prop === 'propTypes') {
-        Object.keys(value).forEach((name) => {
-          let propType = value[name];
-          if (propType.type) {
-            target.propTypes[name] = propType;
-            propType = convertPropType(propType);
-            if (value[name].required) {
-              propType = propType.isRequired;
-            }
-          }
 
-          if (!component.propTypes) {
-            component.propTypes = {};
-          }
-          component.propTypes[name] = propType;
-        });
-      } else {
-        target[prop] = value;
-      }
-      /* eslint-enable no-param-reassign */
-      return true;
-    },
-    get: (target, prop) => {
-      if (prop === 'toJSON') {
-        return descToJSON.bind(null, component, target);
-      } else if (prop === 'toMarkdown') {
-        return descToMarkdown.bind(null, component, target);
-      } else if (reactDescApiFunctions.indexOf(prop) >= 0) {
-        /* eslint-disable no-param-reassign */
-        return (value) => {
-          const newTarget = { ...target };
-          newTarget[prop] = value;
-          return new Proxy(newTarget, handler);
-        };
-        /* eslint-enable no-param-reassign */
-      }
-      return prop ? component[prop] : component;
-    },
+  const documentation = {
+    propTypes: {},
   };
-  return new Proxy({ propTypes: {} }, handler);
+
+  const DocumentedComponent = props => <Component {...props} />;
+  DocumentedComponent.WrappedComponent = Component;
+  DocumentedComponent.displayName = Component.displayName || Component.name;
+
+  const addDocumentationProp = propName => (value) => {
+    documentation[propName] = value;
+    return DocumentedComponent;
+  };
+
+  DocumentedComponent.availableAt = addDocumentationProp('availableAt');
+  DocumentedComponent.description = addDocumentationProp('description');
+  DocumentedComponent.deprecated = addDocumentationProp('deprecated');
+  DocumentedComponent.usage = addDocumentationProp('usage');
+
+  DocumentedComponent.toJSON = descToJSON.bind(null, Component, documentation);
+  DocumentedComponent.toMarkdown = descToMarkdown.bind(null, Component, documentation);
+
+  Object.defineProperty(
+    DocumentedComponent,
+    'propTypes', {
+      set: value => Object.keys(value).map((name) => {
+        let propType = value[name];
+        if (propType.type) {
+          documentation.propTypes[name] = propType;
+          propType = convertPropType(propType);
+          if (value[name].reactDesc.required) {
+            propType = propType.isRequired;
+          }
+        }
+
+        return propType;
+      }),
+      enumerable: true,
+      configurable: true,
+    },
+  );
+
+  return DocumentedComponent;
 }

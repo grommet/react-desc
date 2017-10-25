@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`can be used as a React component 1`] = `
+<div>
+  fake
+</div>
+`;
+
 exports[`returns a deprecated documented json 1`] = `
 Object {
   "availableAt": Array [
@@ -146,7 +152,7 @@ string",
     Object {
       "defaultValue": "abc",
       "deprecated": "use something else",
-      "description": "testRequired",
+      "description": "testDeprecated",
       "format": "string",
       "name": "testDeprecated",
     },
@@ -347,7 +353,7 @@ string
 
 **~~testDeprecated~~** (use something else)
 
-testRequired Defaults to \`abc\`.
+testDeprecated Defaults to \`abc\`.
 
 \`\`\`
 string
@@ -500,7 +506,7 @@ string",
     Object {
       "defaultValue": "abc",
       "deprecated": "use something else",
-      "description": "testRequired",
+      "description": "testDeprecated",
       "format": "string",
       "name": "testDeprecated",
     },
@@ -701,7 +707,7 @@ string
 
 **~~testDeprecated~~** (use something else)
 
-testRequired Defaults to \`abc\`.
+testDeprecated Defaults to \`abc\`.
 
 \`\`\`
 string
