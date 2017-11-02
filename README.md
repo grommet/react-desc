@@ -100,7 +100,7 @@ export default Anchor;
   ```javascript
     import Anchor from './Anchor';
 
-    const documentation = Anchor.toMarkDown();
+    const documentation = Anchor.toMarkdown();
   ```
 
   Expected output:
