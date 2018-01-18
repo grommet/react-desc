@@ -1,6 +1,6 @@
 {
   "name": "react-desc",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Add an schema to your React components based on React PropTypes.",
   "authors": [
     "Alan Souza",
@@ -42,7 +42,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch --verbose",
     "test:verbose": "jest --verbose",
-    "test:update": "jest -u"
+    "test:update": "jest -u",
+    "prepublish": "npm run test && npm run build"
   },
   "jest": {
     "testEnvironment": "node"

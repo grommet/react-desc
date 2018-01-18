@@ -70,18 +70,24 @@ export default function describe(Component) {
   Object.defineProperty(
     DocumentedComponent,
     'propTypes', {
-      set: value => Object.keys(value).map((name) => {
-        let propType = value[name];
-        if (propType.type) {
-          documentation.propTypes[name] = propType;
-          propType = convertPropType(propType);
-          if (value[name].reactDesc.required) {
-            propType = propType.isRequired;
-          }
+      get: () => DocumentedComponent.propTypesValue,
+      set: (value) => {
+        if (!DocumentedComponent.propTypesValue) {
+          DocumentedComponent.propTypesValue = {};
         }
-
-        return propType;
-      }),
+        Object.keys(value).forEach((name) => {
+          let propType = value[name];
+          if (propType.type) {
+            documentation.propTypes[name] = propType;
+            propType = convertPropType(propType);
+            if (value[name].reactDesc.required) {
+              propType = propType.isRequired;
+            }
+          }
+          DocumentedComponent.propTypesValue[name] = propType;
+          return propType;
+        });
+      },
       enumerable: true,
       configurable: true,
     },

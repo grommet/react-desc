@@ -6,6 +6,30 @@ exports[`can be used as a React component 1`] = `
 </div>
 `;
 
+exports[`has propTypes 1`] = `
+Object {
+  "test": [Function],
+  "test10": [Function],
+  "test11": [Function],
+  "test12": [Function],
+  "test13": [Function],
+  "test14": [Function],
+  "test15": [Function],
+  "test16": [Function],
+  "test2": [Function],
+  "test3": [Function],
+  "test4": [Function],
+  "test5": [Function],
+  "test6": [Function],
+  "test7": [Function],
+  "test8": [Function],
+  "test9": [Function],
+  "testDeprecated": [Function],
+  "testNative": [Function],
+  "testRequired": [Function],
+}
+`;
+
 exports[`returns a deprecated documented json 1`] = `
 Object {
   "availableAt": Array [

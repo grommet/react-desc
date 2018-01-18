@@ -127,3 +127,7 @@ it('can be used as a React component', () => {
   const component = renderer.create(<DocumentedComponent />);
   expect(component.toJSON()).toMatchSnapshot();
 });
+
+it('has propTypes', () => {
+  expect(DocumentedComponent.propTypes).toMatchSnapshot();
+});
