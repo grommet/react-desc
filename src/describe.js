@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import descToJSON from './descToJSON';
 import descToMarkdown from './descToMarkdown';
@@ -41,8 +41,8 @@ const convertPropType = (propType) => {
   return result;
 };
 
-export default function describe(Component) {
-  if (!Component) {
+export default function describe(ComponentInstance) {
+  if (!ComponentInstance) {
     throw new Error('react-desc: component is required');
   }
 
@@ -50,9 +50,17 @@ export default function describe(Component) {
     propTypes: {},
   };
 
-  const DocumentedComponent = props => <Component {...props} />;
-  DocumentedComponent.WrappedComponent = Component;
-  DocumentedComponent.displayName = Component.displayName || Component.name;
+  /* eslint-disable react/prefer-stateless-function */
+  class DocumentedComponent extends Component {
+    render() {
+      return (
+        <ComponentInstance {...this.props} />
+      );
+    }
+  }
+  /* eslint-enable react/prefer-stateless-function */
+  DocumentedComponent.WrappedComponent = ComponentInstance;
+  DocumentedComponent.displayName = ComponentInstance.displayName || ComponentInstance.name;
 
   const addDocumentationProp = propName => (value) => {
     documentation[propName] = value;
@@ -64,8 +72,8 @@ export default function describe(Component) {
   DocumentedComponent.deprecated = addDocumentationProp('deprecated');
   DocumentedComponent.usage = addDocumentationProp('usage');
 
-  DocumentedComponent.toJSON = descToJSON.bind(null, Component, documentation);
-  DocumentedComponent.toMarkdown = descToMarkdown.bind(null, Component, documentation);
+  DocumentedComponent.toJSON = descToJSON.bind(null, ComponentInstance, documentation);
+  DocumentedComponent.toMarkdown = descToMarkdown.bind(null, ComponentInstance, documentation);
 
   Object.defineProperty(
     DocumentedComponent,
