@@ -385,6 +385,120 @@ string
   "
 `;
 
+exports[`returns a deprecated documented typescript 1`] = `
+Object {
+  "availableAt": Array [
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js",
+    },
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js",
+    },
+  ],
+  "deprecated": "yes it is deprecated",
+  "description": "component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "any",
+      "format": "any",
+      "name": "test",
+    },
+    Object {
+      "description": "array",
+      "format": "any[]",
+      "name": "test2",
+    },
+    Object {
+      "description": "arrayOf",
+      "format": "number[]",
+      "name": "test3",
+    },
+    Object {
+      "description": "bool",
+      "format": "boolean",
+      "name": "test4",
+    },
+    Object {
+      "description": "custom",
+      "format": "any",
+      "name": "test5",
+    },
+    Object {
+      "description": "element",
+      "format": "JSX.Element",
+      "name": "test6",
+    },
+    Object {
+      "description": "func",
+      "format": "(...args: any[]) => any",
+      "name": "test7",
+    },
+    Object {
+      "description": "instanceOf",
+      "format": "any",
+      "name": "test8",
+    },
+    Object {
+      "description": "node",
+      "format": "React.ReactNode",
+      "name": "test9",
+    },
+    Object {
+      "description": "number",
+      "format": "number",
+      "name": "test10",
+    },
+    Object {
+      "description": "object",
+      "format": "object",
+      "name": "test11",
+    },
+    Object {
+      "description": "objectOf",
+      "format": "{ [key: string]: number }",
+      "name": "test12",
+    },
+    Object {
+      "description": "oneOf",
+      "format": "\\"News\\" | \\"Photos\\"",
+      "name": "test13",
+    },
+    Object {
+      "description": "oneOfType",
+      "format": "number | string",
+      "name": "test14",
+    },
+    Object {
+      "description": "symbol",
+      "format": "any",
+      "name": "test15",
+    },
+    Object {
+      "description": "shape",
+      "format": "{color: string,fontSize: number,one: string | number | any | any,test: any,test2: {test3: string,test4: {test5: string,test6: number,test7: any,test8: string[]}},test9: \\"type1\\" | \\"type2\\" | {type: \\"type1\\" | \\"type2\\",count: number} | \\"type1\\" | \\"type2\\" | {type: \\"type1\\" | \\"type2\\",count: number}[]}",
+      "name": "test16",
+    },
+    Object {
+      "description": "testRequired",
+      "format": "string",
+      "name": "testRequired",
+      "required": true,
+    },
+    Object {
+      "defaultValue": "abc",
+      "deprecated": "use something else",
+      "description": "testDeprecated",
+      "format": "string",
+      "name": "testDeprecated",
+    },
+  ],
+  "usage": "test",
+}
+`;
+
 exports[`returns a documented json 1`] = `
 Object {
   "availableAt": Array [
@@ -737,4 +851,117 @@ testDeprecated Defaults to \`abc\`.
 string
 \`\`\`
   "
+`;
+
+exports[`returns a documented typescript 1`] = `
+Object {
+  "availableAt": Array [
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js",
+    },
+    Object {
+      "badge": "https://codesandbox.io/static/img/play-codesandbox.svg",
+      "url": "https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js",
+    },
+  ],
+  "description": "component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "any",
+      "format": "any",
+      "name": "test",
+    },
+    Object {
+      "description": "array",
+      "format": "any[]",
+      "name": "test2",
+    },
+    Object {
+      "description": "arrayOf",
+      "format": "number[]",
+      "name": "test3",
+    },
+    Object {
+      "description": "bool",
+      "format": "boolean",
+      "name": "test4",
+    },
+    Object {
+      "description": "custom",
+      "format": "any",
+      "name": "test5",
+    },
+    Object {
+      "description": "element",
+      "format": "JSX.Element",
+      "name": "test6",
+    },
+    Object {
+      "description": "func",
+      "format": "(...args: any[]) => any",
+      "name": "test7",
+    },
+    Object {
+      "description": "instanceOf",
+      "format": "any",
+      "name": "test8",
+    },
+    Object {
+      "description": "node",
+      "format": "React.ReactNode",
+      "name": "test9",
+    },
+    Object {
+      "description": "number",
+      "format": "number",
+      "name": "test10",
+    },
+    Object {
+      "description": "object",
+      "format": "object",
+      "name": "test11",
+    },
+    Object {
+      "description": "objectOf",
+      "format": "{ [key: string]: number }",
+      "name": "test12",
+    },
+    Object {
+      "description": "oneOf",
+      "format": "\\"News\\" | \\"Photos\\"",
+      "name": "test13",
+    },
+    Object {
+      "description": "oneOfType",
+      "format": "number | string",
+      "name": "test14",
+    },
+    Object {
+      "description": "symbol",
+      "format": "any",
+      "name": "test15",
+    },
+    Object {
+      "description": "shape",
+      "format": "{color: string,fontSize: number,one: string | number | any | any,test: any,test2: {test3: string,test4: {test5: string,test6: number,test7: any,test8: string[]}},test9: \\"type1\\" | \\"type2\\" | {type: \\"type1\\" | \\"type2\\",count: number} | \\"type1\\" | \\"type2\\" | {type: \\"type1\\" | \\"type2\\",count: number}[]}",
+      "name": "test16",
+    },
+    Object {
+      "description": "testRequired",
+      "format": "string",
+      "name": "testRequired",
+      "required": true,
+    },
+    Object {
+      "defaultValue": "abc",
+      "deprecated": "use something else",
+      "description": "testDeprecated",
+      "format": "string",
+      "name": "testDeprecated",
+    },
+  ],
+  "usage": "test",
+}
 `;

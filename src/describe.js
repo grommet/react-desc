@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import descToJSON from './descToJSON';
 import descToMarkdown from './descToMarkdown';
+import descToTypescript from './descToTypescript';
 
 const convertArray = array =>
   array.map(type => convertPropType(type));
@@ -73,6 +74,7 @@ export default function describe(ComponentInstance) {
   DocumentedComponent.usage = addDocumentationProp('usage');
 
   DocumentedComponent.toJSON = descToJSON.bind(null, ComponentInstance, documentation);
+  DocumentedComponent.toTypescript = descToTypescript.bind(null, ComponentInstance, documentation);
   DocumentedComponent.toMarkdown = descToMarkdown.bind(null, ComponentInstance, documentation);
 
   Object.defineProperty(

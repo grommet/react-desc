@@ -119,6 +119,50 @@ export default Anchor;
     | **target** | target link location. | string | _blank | No |  |
   ```
 
+* Typescript output
+
+  Format entry will be a valid typescript definition.
+
+  ```javascript
+    import { AnchorWithSchema } from './Anchor';
+
+    const documentation = AnchorWithSchema.toTypescript();
+  ```
+
+  Expected output:
+
+  ```json
+    {
+        "name": "Anchor",
+        "description": "A text link",
+        "properties": [
+          {
+            "description": "React-router path to navigate to when clicked",
+            "name": "path",
+            "required": true,
+            "format": "string"
+          },
+          {
+            "description": "link location.",
+            "name": "href",
+            "deprecated": "use path instead",
+            "format": "string"
+          },
+          {
+            "description": "title used for accessibility.",
+            "name": "title",
+            "format": "any"
+          },
+          {
+            "description": "target link location.",
+            "name": "target",
+            "defaultValue": "_blank",
+            "format": "string"
+          }
+        ]
+      }
+  ```
+
 ## API
 
 * `describe(component)`

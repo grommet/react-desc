@@ -115,6 +115,14 @@ it('returns a deprecated documented json', () => {
   expect(DeprecatedComponent.toJSON()).toMatchSnapshot();
 });
 
+it('returns a documented typescript', () => {
+  expect(DocumentedComponent.toTypescript()).toMatchSnapshot();
+});
+
+it('returns a deprecated documented typescript', () => {
+  expect(DeprecatedComponent.toTypescript()).toMatchSnapshot();
+});
+
 it('returns a documented markdown', () => {
   expect(DocumentedComponent.toMarkdown()).toMatchSnapshot();
 });
