@@ -512,6 +512,7 @@ Object {
     },
   ],
   "description": "component",
+  "details": "component details",
   "name": "Component",
   "properties": Array [
     Object {
@@ -866,6 +867,7 @@ Object {
     },
   ],
   "description": "component",
+  "details": "component details",
   "name": "Component",
   "properties": Array [
     Object {

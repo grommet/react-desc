@@ -70,6 +70,7 @@ export default function describe(ComponentInstance) {
 
   DocumentedComponent.availableAt = addDocumentationProp('availableAt');
   DocumentedComponent.description = addDocumentationProp('description');
+  DocumentedComponent.details = addDocumentationProp('details');
   DocumentedComponent.deprecated = addDocumentationProp('deprecated');
   DocumentedComponent.usage = addDocumentationProp('usage');
 
