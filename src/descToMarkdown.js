@@ -21,9 +21,11 @@ function getAvailableAt({ availableAt }) {
   return `\n${availableAtStr}`;
 }
 
-function getHeader({ description, deprecated, name }) {
+function getHeader({ description, details, deprecated, name }) {
   return `## ${deprecated ? `~~${name}~~` : name}${deprecated ? ` (${deprecated})` : ''}
-${description}\n`;
+${description}
+###### ${details || ''}
+`;
 }
 
 function getUsage({ usage }) {
