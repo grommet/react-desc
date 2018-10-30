@@ -24,7 +24,7 @@ function getAvailableAt({ availableAt }) {
 function getHeader({ description, details, deprecated, name }) {
   return `## ${deprecated ? `~~${name}~~` : name}${deprecated ? ` (${deprecated})` : ''}
 ${description}
-###### ${details || ''}
+${details ? `###### ${details}` : ''}
 `;
 }
 
