@@ -23,7 +23,7 @@ function getAvailableAt({ availableAt }) {
 
 function getHeader({ description, details, deprecated, name }) {
   return `## ${deprecated ? `~~${name}~~` : name}${deprecated ? ` (${deprecated})` : ''}
-${description}${details ? `\n${details}` : ''}\n`;
+${description}${details ? `\n\n${details}` : ''}\n`;
 }
 
 function getUsage({ usage }) {

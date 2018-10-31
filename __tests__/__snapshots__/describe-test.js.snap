@@ -188,6 +188,7 @@ string",
 exports[`returns a deprecated documented markdown 1`] = `
 "## ~~Component~~ (yes it is deprecated)
 component
+
 component details
 
 [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js)
@@ -658,6 +659,7 @@ string",
 exports[`returns a documented markdown 1`] = `
 "## Component
 component
+
 component details
 
 [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js)

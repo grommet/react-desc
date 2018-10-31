@@ -1,6 +1,6 @@
 {
   "name": "react-desc",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "description": "Add an schema to your React components based on React PropTypes.",
   "authors": [
     "Alan Souza",
