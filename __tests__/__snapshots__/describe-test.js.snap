@@ -44,7 +44,7 @@ Object {
   ],
   "deprecated": "yes it is deprecated",
   "description": "component",
-  "name": "Component",
+  "name": "",
   "properties": Array [
     Object {
       "description": "any",
@@ -186,10 +186,8 @@ string",
 `;
 
 exports[`returns a deprecated documented markdown 1`] = `
-"## ~~Component~~ (yes it is deprecated)
+"## ~~~~ (yes it is deprecated)
 component
-
-component details
 
 [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=button&amp;module=%2Fscreens%2FButton.js) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-site?initialpath=buttonNew&amp;module=%2Fscreens%2FButtonNew.js)
 ## Usage
@@ -401,7 +399,7 @@ Object {
   ],
   "deprecated": "yes it is deprecated",
   "description": "component",
-  "name": "Component",
+  "name": "",
   "properties": Array [
     Object {
       "description": "any",

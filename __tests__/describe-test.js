@@ -58,7 +58,7 @@ const DocumentedComponent = describe(Component)
   .description('component')
   .details('component details')
   .usage('test');
-const DeprecatedComponent = describe(Component)
+const DeprecatedComponent = describe(() => {})
   .deprecated('yes it is deprecated')
   .availableAt([
     {
@@ -129,7 +129,7 @@ it('returns a documented markdown', () => {
 });
 
 it('returns a deprecated documented markdown', () => {
-  expect(DocumentedComponent.deprecated('yes it is deprecated').toMarkdown()).toMatchSnapshot();
+  expect(DeprecatedComponent.toMarkdown()).toMatchSnapshot();
 });
 
 it('can be used as a React component', () => {
