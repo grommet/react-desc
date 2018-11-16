@@ -51,17 +51,7 @@ export default function describe(ComponentInstance) {
     propTypes: {},
   };
 
-  /* eslint-disable react/prefer-stateless-function */
-  class DocumentedComponent extends Component {
-    render() {
-      return (
-        <ComponentInstance {...this.props} />
-      );
-    }
-  }
-  /* eslint-enable react/prefer-stateless-function */
-  DocumentedComponent.WrappedComponent = ComponentInstance;
-  DocumentedComponent.displayName = ComponentInstance.displayName || ComponentInstance.name;
+  const DocumentedComponent = ComponentInstance;
 
   const addDocumentationProp = propName => (value) => {
     documentation[propName] = value;
