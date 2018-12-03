@@ -57,7 +57,8 @@ const DocumentedComponent = describe(Component)
   ])
   .description('component')
   .details('component details')
-  .usage('test');
+  .usage('test')
+  .intrinsicElement('label');
 const DeprecatedComponent = describe(() => {})
   .deprecated('yes it is deprecated')
   .availableAt([

@@ -513,6 +513,7 @@ Object {
   ],
   "description": "component",
   "details": "component details",
+  "intrinsicElement": "label",
   "name": "Component",
   "properties": Array [
     Object {
@@ -853,7 +854,12 @@ testDeprecated Defaults to \`abc\`.
 \`\`\`
 string
 \`\`\`
-  "
+  
+## Intrinsic element
+
+\`\`\`
+label
+\`\`\`"
 `;
 
 exports[`returns a documented typescript 1`] = `
@@ -870,6 +876,7 @@ Object {
   ],
   "description": "component",
   "details": "component details",
+  "intrinsicElement": "label",
   "name": "Component",
   "properties": Array [
     Object {
