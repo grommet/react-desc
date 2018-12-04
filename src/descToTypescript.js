@@ -15,7 +15,7 @@ const shapeFormat = (shape) => {
     } else {
       valueFormat = propTypeFormat(value);
     }
-    return `${key}: ${valueFormat}`;
+    return `${key}${value.reactDesc && value.reactDesc.required ? '' : '?'}: ${valueFormat}`;
   });
   return `{${props.join(',')}}`;
 };
