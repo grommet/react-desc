@@ -62,6 +62,7 @@ export default function describe(ComponentInstance) {
   DocumentedComponent.details = addDocumentationProp('details');
   DocumentedComponent.deprecated = addDocumentationProp('deprecated');
   DocumentedComponent.usage = addDocumentationProp('usage');
+  DocumentedComponent.intrinsicElement = addDocumentationProp('intrinsicElement');
 
   DocumentedComponent.toJSON = descToJSON.bind(null, ComponentInstance, documentation);
   DocumentedComponent.toTypescript = descToTypescript.bind(null, ComponentInstance, documentation);

@@ -61,6 +61,17 @@ ${props.join('\n')}
   `;
 }
 
+function getIntrinsicElement({ intrinsicElement }) {
+  return intrinsicElement ? (
+    `
+## Intrinsic element
+
+${code}
+${intrinsicElement}
+${code}`
+  ) : '';
+}
+
 export default function descToMarkdown(component, reactDesc) {
   if (!component) {
     throw new Error('react-desc: component is required');
@@ -71,5 +82,6 @@ export default function descToMarkdown(component, reactDesc) {
   const header = getHeader(documentation);
   const usage = getUsage(documentation);
   const properties = getProperties(documentation);
-  return `${header}${availableAt}${usage}${properties}`;
+  const intrinsicElement = getIntrinsicElement(documentation);
+  return `${header}${availableAt}${usage}${properties}${intrinsicElement}`;
 }
