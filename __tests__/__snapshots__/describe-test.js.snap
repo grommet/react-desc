@@ -433,7 +433,7 @@ Object {
     },
     Object {
       "description": "func",
-      "format": "(...args: any[]) => any",
+      "format": "((...args: any[]) => any)",
       "name": "test7",
     },
     Object {
@@ -911,7 +911,7 @@ Object {
     },
     Object {
       "description": "func",
-      "format": "(...args: any[]) => any",
+      "format": "((...args: any[]) => any)",
       "name": "test7",
     },
     Object {

@@ -40,7 +40,7 @@ const propTypeFormat = (propType) => {
         result = 'boolean';
         break;
       case 'func':
-        result = '(...args: any[]) => any';
+        result = '((...args: any[]) => any)';
         break;
       case 'node':
         result = 'React.ReactNode';
