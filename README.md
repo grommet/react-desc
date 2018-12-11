@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/grommet/react-desc/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-desc)
 [![Test Coverage](https://codeclimate.com/github/grommet/react-desc/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-desc/coverage)
 
-Add an schema to your React components based on React PropTypes
+Add a schema to your React components based on React PropTypes
 
 ## Installation
 
