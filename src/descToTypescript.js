@@ -20,20 +20,20 @@ const shapeFormat = (shape) => {
   return `{${props.join(',')}}`;
 };
 
-const propTypeFormat = (propType) => {
+const propTypeFormat = (propType, joinWith) => {
   let result;
-  if (typeof propType !== 'function' && propType.type) {
+  if (Array.isArray(propType)) {
+    result = arrayFormat(propType).join(joinWith);
+  } else if (typeof propType !== 'function' && propType.type) {
     switch (propType.type) {
       case 'array':
         result = 'any[]';
         break;
       case 'arrayOf':
-        if (Array.isArray(propType.args)) {
-          result = `${arrayFormat(propType.args).join('\n')}[]`;
-        } else if (propType.args.type === 'oneOfType') {
-          result = `${propTypeFormat(propType.args)}[]`;
+        if (propType.args.type === 'oneOfType') {
+          result = `(${propTypeFormat(propType.args, ' | ')})[]`;
         } else {
-          result = `${propTypeFormat(propType.args)}[]`;
+          result = `${propTypeFormat(propType.args, '\n')}[]`;
         }
         break;
       case 'bool':
@@ -55,17 +55,13 @@ const propTypeFormat = (propType) => {
         result = 'any';
         break;
       case 'objectOf':
-        result = `{ [key: string]: ${propType.args.type} }`;
+        result = `{ [key: string]: ${propTypeFormat(propType.args)} }`;
         break;
       case 'oneOf':
         result = propType.args.map(a => `"${a}"`).join(' | ');
         break;
       case 'oneOfType':
-        if (Array.isArray(propType.args)) {
-          result = arrayFormat(propType.args).join(' | ');
-        } else {
-          result = `${propTypeFormat(propType.args)}`;
-        }
+        result = `${propTypeFormat(propType.args, ' | ')}`;
         break;
       case 'shape':
         result = `${shapeFormat(propType.args)}`;

@@ -41,6 +41,11 @@ const complexShape = {
       ]),
     ),
   ]),
+  test10: PropTypes.objectOf(PropTypes.element), // for Markdown
+  test11: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])),
 };
 
 const Component = () => <div>fake</div>;

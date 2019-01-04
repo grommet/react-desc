@@ -163,7 +163,12 @@ string",
           type2,
         count: number
       }
-    ]
+    ],
+  test10: { test: element, ... },
+  test11: [
+  string
+  number
+]
 }",
       "name": "test16",
     },
@@ -363,7 +368,12 @@ shape
           type2,
         count: number
       }
-    ]
+    ],
+  test10: { test: element, ... },
+  test11: [
+  string
+  number
+]
 }
 \`\`\`
 
@@ -478,7 +488,7 @@ Object {
     },
     Object {
       "description": "shape",
-      "format": "{color?: string,fontSize?: number,one?: string | number | any | any,test?: any,test2?: {test3: string,test4?: {test5?: string,test6?: number,test7?: any,test8?: string[]}},test9?: \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number} | \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number}[]}",
+      "format": "{color?: string,fontSize?: number,one?: string | number | any | any,test?: any,test2?: {test3: string,test4?: {test5?: string,test6?: number,test7?: any,test8?: string[]}},test9?: \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number} | (\\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number})[],test10?: { [key: string]: JSX.Element },test11?: (string | number)[]}",
       "name": "test16",
     },
     Object {
@@ -633,7 +643,12 @@ string",
           type2,
         count: number
       }
-    ]
+    ],
+  test10: { test: element, ... },
+  test11: [
+  string
+  number
+]
 }",
       "name": "test16",
     },
@@ -835,7 +850,12 @@ shape
           type2,
         count: number
       }
-    ]
+    ],
+  test10: { test: element, ... },
+  test11: [
+  string
+  number
+]
 }
 \`\`\`
 
@@ -956,7 +976,7 @@ Object {
     },
     Object {
       "description": "shape",
-      "format": "{color?: string,fontSize?: number,one?: string | number | any | any,test?: any,test2?: {test3: string,test4?: {test5?: string,test6?: number,test7?: any,test8?: string[]}},test9?: \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number} | \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number}[]}",
+      "format": "{color?: string,fontSize?: number,one?: string | number | any | any,test?: any,test2?: {test3: string,test4?: {test5?: string,test6?: number,test7?: any,test8?: string[]}},test9?: \\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number} | (\\"type1\\" | \\"type2\\" | {type?: \\"type1\\" | \\"type2\\",count?: number})[],test10?: { [key: string]: JSX.Element },test11?: (string | number)[]}",
       "name": "test16",
     },
     Object {
