@@ -41,11 +41,11 @@ export const AnchorWithSchema = describe(Anchor)
   .description('A text link');
 
 AnchorWithSchema.propTypes = {
-  path: PropTypes.string.describe('React-router path to navigate to when clicked').isRequired,
-  href: PropTypes.string.describe('link location').deprecated('use path instead'),
+  path: PropTypes.string.description('React-router path to navigate to when clicked').isRequired,
+  href: PropTypes.string.description('link location').deprecated('use path instead'),
   id: ReactPropTypes.string, // this will be ignored for documentation purposes
   title: PropTypes.custom(() => {}).description('title used for accessibility').format('XXX-XX'),
-  target: PropTypes.string.describe('target link location').defaultValue('_blank'),
+  target: PropTypes.string.description('target link location').defaultValue('_blank'),
 };
 
 export default Anchor;
@@ -185,6 +185,28 @@ export default Anchor;
     * **description(value)**: function that receives a string with the PropType description.
     * **deprecated(value)**: function that receives a string with the deprecation message.
     * **format(value)**: function that receives a string with the PropTypex format.
+
+## Spreading the prop types from another component
+
+If you have a component which accepts the same props as another component, you may be used to doing something like
+
+```
+SomeComponent.propTypes = {
+  ...SomeOtherComponent.propTypes,
+  color: PropTypes.string
+};
+```
+
+With `react-desc`, this will not have the intended effect, since components created by `describe` expose regular React prop types, not the described ones. Instead, use the `describedPropTypes` property:
+
+```
+const DocumentedSomeComponent = describe(SomeComponent).description(...);
+DocumentedSomeComponent.propTypes = {
+  ...DocumentedOtherComponent.describedPropTypes,
+  color: PropTypes.string.description(...)
+};
+
+```
 
 ## Why not [react-docgen](https://github.com/reactjs/react-docgen)?
 

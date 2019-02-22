@@ -94,5 +94,14 @@ export default function describe(ComponentInstance) {
     },
   );
 
+  Object.defineProperty(
+    DocumentedComponent,
+    'describedPropTypes', {
+      get: () => documentation.propTypes,
+      enumerable: true,
+      configurable: true,
+    },
+  );
+
   return DocumentedComponent;
 }
