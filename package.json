@@ -1,20 +1,33 @@
 {
-  "name": "react-desc",
+  "name": "react-desc-spreadable",
   "version": "4.1.2",
-  "description": "Add an schema to your React components based on React PropTypes.",
-  "authors": [
+  "description": "Add a schema to your React components based on React PropTypes. This is a fork of `react-desc` that adds the ability to access documented PropTypes.",
+  "author": {
+    "name": "Josh Asch",
+    "url": "https://joshasch.com"
+  },
+  "contributors": [
     "Alan Souza",
     "Bryan Jacquot",
     "Chris Carlozzi",
-    "Eric Soderberg"
+    "Eric Soderberg",
+    "Vasil Dininski"
+  ],
+  "keywords": [
+    "react",
+    "proptypes",
+    "prop-types",
+    "description",
+    "documentation",
+    "react-desc"
   ],
   "main": "lib/index.js",
-  "homepage": "http://grommet.io",
-  "bugs": "https://github.com/grommet/react-desc/issues",
+  "homepage": "https://github.com/jobbogamer/react-desc-spreadable",
+  "bugs": "https://github.com/jobbogamer/react-desc-spreadable/issues",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grommet/react-desc.git"
+    "url": "https://github.com/jobbogamer/react-desc-spreadable.git"
   },
   "peerDependencies": {
     "prop-types": "15.x",

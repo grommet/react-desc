@@ -1,16 +1,11 @@
-# react-desc
+# react-desc-spreadable
 
-[![Slack](http://alansouzati.github.io/artic/img/slack-badge.svg)](http://slackin.grommet.io)
-[![Build Status](https://travis-ci.org/grommet/react-desc.svg?branch=master)](https://travis-ci.org/grommet/react-desc)
-[![Code Climate](https://codeclimate.com/github/grommet/react-desc/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-desc)
-[![Test Coverage](https://codeclimate.com/github/grommet/react-desc/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-desc/coverage)
-
-Add a schema to your React components based on React PropTypes
+Add a schema to your React components based on React PropTypes. This package is a fork of [react-desc](https://github.com/grommet/react-desc) which adds the `describedPropTypes` property on described components. This allows raw access to the described prop types of a component, to spread them into another component's prop types for example.
 
 ## Installation
 
 ```bash
-npm install react-desc
+npm install react-desc-spreadable
 ```
 
 ## Usage
@@ -22,7 +17,7 @@ npm install react-desc
 
 import React from 'react';
 import ReactPropTypes from 'prop-types';
-import { describe, PropTypes } from 'react-desc';
+import { describe, PropTypes } from 'react-desc-spreadable';
 
 const Anchor = (props) => {
   const { path, ...rest } = props;
