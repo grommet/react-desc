@@ -3,9 +3,7 @@ import descToJSON from './descToJSON';
 const code = '```';
 
 function parseAvailableAt({ badge, url }) {
-  return (
-    `[![](${badge})](${url})`
-  );
+  return `[![](${badge})](${url})`;
 }
 
 function getAvailableAt({ availableAt }) {
@@ -14,7 +12,9 @@ function getAvailableAt({ availableAt }) {
   }
   let availableAtStr;
   if (Array.isArray(availableAt)) {
-    availableAtStr = availableAt.map(currentAvailable => parseAvailableAt(currentAvailable)).join(' ');
+    availableAtStr = availableAt
+      .map(currentAvailable => parseAvailableAt(currentAvailable))
+      .join(' ');
   } else {
     availableAtStr = parseAvailableAt(availableAt);
   }
@@ -22,38 +22,47 @@ function getAvailableAt({ availableAt }) {
 }
 
 function getHeader({ description, details, deprecated, name }) {
-  return `## ${deprecated ? `~~${name}~~` : name}${deprecated ? ` (${deprecated})` : ''}
+  return `## ${deprecated ? `~~${name}~~` : name}${
+    deprecated ? ` (${deprecated})` : ''
+  }
 ${description}${details ? `\n\n${details}` : ''}\n`;
 }
 
 function getUsage({ usage }) {
-  return usage ? (
-    `
+  return usage
+    ? `
 ## Usage
 
 ${code}javascript
 ${usage}
 ${code}`
-  ) : '';
+    : '';
 }
 
 function getDefaultValue(defaultValue) {
-  const defaultValueString = typeof defaultValue === 'object' ?
-    JSON.stringify(defaultValue, undefined, 2) : defaultValue;
+  const defaultValueString =
+    typeof defaultValue === 'object'
+      ? JSON.stringify(defaultValue, undefined, 2)
+      : defaultValue;
 
   return ` Defaults to \`${defaultValueString}\`.`;
 }
 
 function getProperties({ properties = [] }) {
   const props = properties.map(
-    ({ defaultValue, deprecated, description, format, name, required }) => (`
-${deprecated ? `**~~${name}~~**` : `**${name}**`}${deprecated ? ` (${deprecated})` : ''}
+    ({ defaultValue, deprecated, description, format, name, required }) => `
+${deprecated ? `**~~${name}~~**` : `**${name}**`}${
+      deprecated ? ` (${deprecated})` : ''
+    }
 
-${required ? 'Required. ' : ''}${description}${defaultValue ? getDefaultValue(defaultValue) : ''}
+${required ? 'Required. ' : ''}${description}${
+      defaultValue ? getDefaultValue(defaultValue) : ''
+    }
 
 ${code}
 ${format}
-${code}`));
+${code}`
+  );
   return `
 
 ## Properties
@@ -62,14 +71,14 @@ ${props.join('\n')}
 }
 
 function getIntrinsicElement({ intrinsicElement }) {
-  return intrinsicElement ? (
-    `
+  return intrinsicElement
+    ? `
 ## Intrinsic element
 
 ${code}
 ${intrinsicElement}
 ${code}`
-  ) : '';
+    : '';
 }
 
 export default function descToMarkdown(component, reactDesc) {

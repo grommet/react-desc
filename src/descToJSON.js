@@ -1,14 +1,17 @@
-
 const arrayFormat = (array, prefix) =>
   array.map(propType => propTypeFormat(propType, prefix));
 
 const shapeFormat = (shape, prefix) => {
-  const props = Object.keys(shape).map((key) => {
+  const props = Object.keys(shape).map(key => {
     const value = shape[key];
     let valueFormat;
-    if (value.type &&
-      ((value.type === 'arrayOf' || value.type === 'oneOfType' ||
-        value.type === 'oneOf') && Array.isArray(value.args))) {
+    if (
+      value.type &&
+      ((value.type === 'arrayOf' ||
+        value.type === 'oneOfType' ||
+        value.type === 'oneOf') &&
+        Array.isArray(value.args))
+    ) {
       valueFormat = `\n${propTypeFormat(value, `${prefix}    `)}`;
     } else if (value.type === 'shape') {
       valueFormat = `\n${propTypeFormat(value, `${prefix}    `)}`;
@@ -26,9 +29,15 @@ const propTypeFormat = (propType, prefix = '') => {
     switch (propType.type) {
       case 'arrayOf':
         if (Array.isArray(propType.args)) {
-          result = `${prefix}[\n${arrayFormat(propType.args, `${prefix}  `).join('\n')}\n${prefix}]`;
+          result = `${prefix}[\n${arrayFormat(
+            propType.args,
+            `${prefix}  `
+          ).join('\n')}\n${prefix}]`;
         } else if (propType.args.type === 'oneOfType') {
-          result = `${prefix}[\n${propTypeFormat(propType.args, `${prefix}  `)}\n${prefix}]`;
+          result = `${prefix}[\n${propTypeFormat(
+            propType.args,
+            `${prefix}  `
+          )}\n${prefix}]`;
         } else {
           result = `${prefix}[${propTypeFormat(propType.args)}]`;
         }
@@ -71,7 +80,7 @@ const propTypeFormat = (propType, prefix = '') => {
 const propTypeAsJson = (propType, propName, defaultValue) => {
   const documentation = {
     ...propType.reactDesc,
-    name: propName,
+    name: propName
   };
 
   if (defaultValue) {
@@ -90,19 +99,21 @@ export default function descToJSON(component, reactDesc = {}) {
 
   const documentation = {
     name: component.displayName || component.name,
-    ...reactDesc,
+    ...reactDesc
   };
   if (reactDesc) {
     delete documentation.propTypes;
 
     if (reactDesc.propTypes) {
       const propTypes = [];
-      Object.keys(reactDesc.propTypes).forEach((propName) => {
+      Object.keys(reactDesc.propTypes).forEach(propName => {
         const propType = reactDesc.propTypes[propName];
         propTypes.push(
           propTypeAsJson(
-            propType, propName, (component.defaultProps || {})[propName],
-          ),
+            propType,
+            propName,
+            (component.defaultProps || {})[propName]
+          )
         );
       });
       if (propTypes.length > 0) {

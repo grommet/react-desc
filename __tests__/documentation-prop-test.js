@@ -11,32 +11,34 @@ const props = {
   one: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.instanceOf(FakeComponent),
+    PropTypes.instanceOf(FakeComponent)
   ]).description('one (oneOfType)'),
   deprecatedProp: PropTypes.string
     .description('deprecated (string)')
-    .deprecated('do not use'),
+    .deprecated('do not use')
 };
 
-
 const Component = () => <div>base</div>;
-const DocumentedComponent = describe(Component).description(
-  'the component',
-);
+const DocumentedComponent = describe(Component).description('the component');
 DocumentedComponent.propTypes = props;
 
 it('returns JSON with all props', () => {
   expect(DocumentedComponent.documentation.toJSON()).toMatchSnapshot();
-  expect(DocumentedComponent.documentation.toJSON()).toEqual(DocumentedComponent.toJSON());
+  expect(DocumentedComponent.documentation.toJSON()).toEqual(
+    DocumentedComponent.toJSON()
+  );
 });
 
 it('returns Markdown with all props', () => {
   expect(DocumentedComponent.documentation.toMarkdown()).toMatchSnapshot();
-  expect(DocumentedComponent.documentation.toMarkdown()).toEqual(DocumentedComponent.toMarkdown());
+  expect(DocumentedComponent.documentation.toMarkdown()).toEqual(
+    DocumentedComponent.toMarkdown()
+  );
 });
 
 it('returns Typescript with all props', () => {
   expect(DocumentedComponent.documentation.toTypescript()).toMatchSnapshot();
-  expect(DocumentedComponent.documentation.toTypescript())
-    .toEqual(DocumentedComponent.toTypescript());
+  expect(DocumentedComponent.documentation.toTypescript()).toEqual(
+    DocumentedComponent.toTypescript()
+  );
 });

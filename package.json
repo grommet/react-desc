@@ -35,30 +35,38 @@
   },
   "devDependencies": {
     "babel-cli": "^6.5.2",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.16.0",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint": "^5.15.3",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-react-app": "^3.0.8",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "jest": "^21.2.1",
+    "prettier": "^1.16.4",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-test-renderer": "^16.0.0"
   },
   "scripts": {
-    "build": "npm run test && npm run lint && npm run compile",
+    "build": "npm run format && npm run lint && npm run test && npm run compile",
     "compile": "babel src --out-dir lib --copy-files --loose-mode",
     "lint": "eslint src && eslint __tests__",
+    "format": "prettier --write '{src,__tests__}/**/*.js'",
     "test": "jest --coverage",
     "test:watch": "jest --watch --verbose",
     "test:verbose": "jest --verbose",
     "test:update": "jest -u",
-    "prepublish": "npm run test && npm run build"
+    "prepublish": "npm run build"
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "eslint-plugin-flowtype": "^3.4.2"
   }
 }

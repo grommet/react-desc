@@ -1,21 +1,25 @@
+const arrayFormat = array => array.map(propType => propTypeFormat(propType));
 
-const arrayFormat = array =>
-  array.map(propType => propTypeFormat(propType));
-
-const shapeFormat = (shape) => {
-  const props = Object.keys(shape).map((key) => {
+const shapeFormat = shape => {
+  const props = Object.keys(shape).map(key => {
     const value = shape[key];
     let valueFormat;
-    if (value.type &&
-      ((value.type === 'arrayOf' || value.type === 'oneOfType' ||
-        value.type === 'oneOf') && Array.isArray(value.args))) {
+    if (
+      value.type &&
+      ((value.type === 'arrayOf' ||
+        value.type === 'oneOfType' ||
+        value.type === 'oneOf') &&
+        Array.isArray(value.args))
+    ) {
       valueFormat = `${propTypeFormat(value)}`;
     } else if (value.type === 'shape') {
       valueFormat = `${propTypeFormat(value)}`;
     } else {
       valueFormat = propTypeFormat(value);
     }
-    return `${key}${value.reactDesc && value.reactDesc.required ? '' : '?'}: ${valueFormat}`;
+    return `${key}${
+      value.reactDesc && value.reactDesc.required ? '' : '?'
+    }: ${valueFormat}`;
   });
   return `{${props.join(',')}}`;
 };
@@ -79,7 +83,7 @@ const propTypeFormat = (propType, joinWith) => {
 const propTypeAsTypescript = (propType, propName) => {
   const documentation = {
     ...propType.reactDesc,
-    name: propName,
+    name: propName
   };
 
   documentation.format = propTypeFormat(propType);
@@ -94,20 +98,16 @@ export default function descToTypescript(component, reactDesc = {}) {
 
   const documentation = {
     name: component.displayName || component.name,
-    ...reactDesc,
+    ...reactDesc
   };
   if (reactDesc) {
     delete documentation.propTypes;
 
     if (reactDesc.propTypes) {
       const propTypes = [];
-      Object.keys(reactDesc.propTypes).forEach((propName) => {
+      Object.keys(reactDesc.propTypes).forEach(propName => {
         const propType = reactDesc.propTypes[propName];
-        propTypes.push(
-          propTypeAsTypescript(
-            propType, propName,
-          ),
-        );
+        propTypes.push(propTypeAsTypescript(propType, propName));
       });
       if (propTypes.length > 0) {
         documentation.properties = propTypes;

@@ -11,33 +11,33 @@ const baseProps = {
   one: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.instanceOf(FakeComponent),
+    PropTypes.instanceOf(FakeComponent)
   ]).description('one (oneOfType)'),
   deprecatedProp: PropTypes.string
     .description('deprecated (string)')
-    .deprecated('do not use'),
+    .deprecated('do not use')
 };
 
 const additionalProps = {
   arr: PropTypes.arrayOf(PropTypes.number).description('arr (array of number)'),
   fun: PropTypes.func
     .description('fun (function)')
-    .deprecated('a deprecated function'),
+    .deprecated('a deprecated function')
 };
 
 const BaseComponent = () => <div>base</div>;
 const DocumentedBaseComponent = describe(BaseComponent).description(
-  'the base component',
+  'the base component'
 );
 DocumentedBaseComponent.propTypes = baseProps;
 
 const ExtendedComponent = () => <div>extended</div>;
 const DocumentedExtendedComponent = describe(ExtendedComponent).description(
-  'this component spreads the base component prop types',
+  'this component spreads the base component prop types'
 );
 DocumentedExtendedComponent.propTypes = {
   ...BaseComponent.describedPropTypes,
-  ...additionalProps,
+  ...additionalProps
 };
 
 it('returns JSON with all props', () => {

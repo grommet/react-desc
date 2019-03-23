@@ -3,18 +3,17 @@ import descToJSON from './descToJSON';
 import descToMarkdown from './descToMarkdown';
 import descToTypescript from './descToTypescript';
 
-const convertArray = array =>
-  array.map(type => convertPropType(type));
+const convertArray = array => array.map(type => convertPropType(type));
 
-const convertShape = (shape) => {
+const convertShape = shape => {
   const result = {};
-  Object.keys(shape).forEach((key) => {
+  Object.keys(shape).forEach(key => {
     result[key] = convertPropType(shape[key]);
   });
   return result;
 };
 
-const convertPropType = (propType) => {
+const convertPropType = propType => {
   let result;
   if (propType && propType.type) {
     if (!PropTypes[propType.type]) {
@@ -47,12 +46,12 @@ export default function describe(ComponentInstance) {
   }
 
   const documentation = {
-    propTypes: {},
+    propTypes: {}
   };
 
   const DocumentedComponent = ComponentInstance;
 
-  const addDocumentationProp = propName => (value) => {
+  const addDocumentationProp = propName => value => {
     documentation[propName] = value;
     return DocumentedComponent;
   };
@@ -62,61 +61,66 @@ export default function describe(ComponentInstance) {
   DocumentedComponent.details = addDocumentationProp('details');
   DocumentedComponent.deprecated = addDocumentationProp('deprecated');
   DocumentedComponent.usage = addDocumentationProp('usage');
-  DocumentedComponent.intrinsicElement = addDocumentationProp('intrinsicElement');
+  DocumentedComponent.intrinsicElement = addDocumentationProp(
+    'intrinsicElement'
+  );
 
-  DocumentedComponent.toJSON = descToJSON.bind(null, ComponentInstance, documentation);
-  DocumentedComponent.toTypescript = descToTypescript.bind(null, ComponentInstance, documentation);
-  DocumentedComponent.toMarkdown = descToMarkdown.bind(null, ComponentInstance, documentation);
+  DocumentedComponent.toJSON = descToJSON.bind(
+    null,
+    ComponentInstance,
+    documentation
+  );
+  DocumentedComponent.toTypescript = descToTypescript.bind(
+    null,
+    ComponentInstance,
+    documentation
+  );
+  DocumentedComponent.toMarkdown = descToMarkdown.bind(
+    null,
+    ComponentInstance,
+    documentation
+  );
 
   const externalDocumentation = {
     toJSON: DocumentedComponent.toJSON,
     toMarkdown: DocumentedComponent.toMarkdown,
-    toTypescript: DocumentedComponent.toTypescript,
+    toTypescript: DocumentedComponent.toTypescript
   };
 
-  Object.defineProperty(
-    DocumentedComponent,
-    'propTypes', {
-      get: () => DocumentedComponent.propTypesValue,
-      set: (value) => {
-        if (!DocumentedComponent.propTypesValue) {
-          DocumentedComponent.propTypesValue = {};
-        }
-        Object.keys(value).forEach((name) => {
-          let propType = value[name];
-          if (propType.type) {
-            documentation.propTypes[name] = propType;
-            propType = convertPropType(propType);
-            if (value[name].reactDesc.required) {
-              propType = propType.isRequired;
-            }
+  Object.defineProperty(DocumentedComponent, 'propTypes', {
+    get: () => DocumentedComponent.propTypesValue,
+    set: value => {
+      if (!DocumentedComponent.propTypesValue) {
+        DocumentedComponent.propTypesValue = {};
+      }
+      Object.keys(value).forEach(name => {
+        let propType = value[name];
+        if (propType.type) {
+          documentation.propTypes[name] = propType;
+          propType = convertPropType(propType);
+          if (value[name].reactDesc.required) {
+            propType = propType.isRequired;
           }
-          DocumentedComponent.propTypesValue[name] = propType;
-          return propType;
-        });
-      },
-      enumerable: true,
-      configurable: true,
+        }
+        DocumentedComponent.propTypesValue[name] = propType;
+        return propType;
+      });
     },
-  );
+    enumerable: true,
+    configurable: true
+  });
 
-  Object.defineProperty(
-    DocumentedComponent,
-    'describedPropTypes', {
-      get: () => documentation.propTypes,
-      enumerable: true,
-      configurable: true,
-    },
-  );
+  Object.defineProperty(DocumentedComponent, 'describedPropTypes', {
+    get: () => documentation.propTypes,
+    enumerable: true,
+    configurable: true
+  });
 
-  Object.defineProperty(
-    DocumentedComponent,
-    'documentation', {
-      get: () => externalDocumentation,
-      enumerable: true,
-      configurable: true,
-    },
-  );
+  Object.defineProperty(DocumentedComponent, 'documentation', {
+    get: () => externalDocumentation,
+    enumerable: true,
+    configurable: true
+  });
 
   return DocumentedComponent;
 }

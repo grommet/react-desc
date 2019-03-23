@@ -6,5 +6,5 @@ exports.describe = describe;
 
 export default {
   describe,
-  PropTypes,
+  PropTypes
 };
