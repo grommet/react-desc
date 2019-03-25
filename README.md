@@ -48,12 +48,17 @@ export default Anchor;
 
 ### Accessing documentation
 
+Documented components have a `documentation` property which contains three functions: `toJSON`, `toMarkdown`, and `toTypescript`
+(this was added in v4.2.0). The documented component itself also exports the same three functions, although it's recommended to
+use the `documentation` property so that your code is more maintainable – `MyComponent.documentation.toJSON()` makes a lot more
+sense to someone new than simply `MyComponent.toJSON()`.
+
 * JSON output
 
   ```javascript
     import { AnchorWithSchema } from './Anchor';
 
-    const documentation = AnchorWithSchema.toJSON();
+    const documentation = AnchorWithSchema.documentation.toJSON();
   ```
 
   Expected output:
@@ -95,7 +100,7 @@ export default Anchor;
   ```javascript
     import Anchor from './Anchor';
 
-    const documentation = Anchor.toMarkdown();
+    const documentation = Anchor.documentation.toMarkdown();
   ```
 
   Expected output:
@@ -121,7 +126,7 @@ export default Anchor;
   ```javascript
     import { AnchorWithSchema } from './Anchor';
 
-    const documentation = AnchorWithSchema.toTypescript();
+    const documentation = AnchorWithSchema.documentation.toTypescript();
   ```
 
   Expected output:
