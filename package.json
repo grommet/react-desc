@@ -1,6 +1,6 @@
 {
   "name": "react-desc-spreadable",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "Add a schema to your React components based on React PropTypes. This is a fork of `react-desc` that adds the ability to access documented PropTypes.",
   "author": {
     "name": "Josh Asch",
