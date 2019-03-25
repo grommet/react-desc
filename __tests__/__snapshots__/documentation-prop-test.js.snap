@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns JSON with all props 1`] = `
+Object {
+  "description": "the component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "color (string)",
+      "format": "string",
+      "name": "color",
+    },
+    Object {
+      "description": "fontSize (number)",
+      "format": "number",
+      "name": "fontSize",
+    },
+    Object {
+      "description": "one (oneOfType)",
+      "format": "string
+number
+new FakeComponent(...)",
+      "name": "one",
+    },
+    Object {
+      "deprecated": "do not use",
+      "description": "deprecated (string)",
+      "format": "string",
+      "name": "deprecatedProp",
+    },
+  ],
+}
+`;
+
+exports[`returns Markdown with all props 1`] = `
+"## Component
+the component
+
+
+## Properties
+
+**color**
+
+color (string)
+
+\`\`\`
+string
+\`\`\`
+
+**fontSize**
+
+fontSize (number)
+
+\`\`\`
+number
+\`\`\`
+
+**one**
+
+one (oneOfType)
+
+\`\`\`
+string
+number
+new FakeComponent(...)
+\`\`\`
+
+**~~deprecatedProp~~** (do not use)
+
+deprecated (string)
+
+\`\`\`
+string
+\`\`\`
+  "
+`;
+
+exports[`returns Typescript with all props 1`] = `
+Object {
+  "description": "the component",
+  "name": "Component",
+  "properties": Array [
+    Object {
+      "description": "color (string)",
+      "format": "string",
+      "name": "color",
+    },
+    Object {
+      "description": "fontSize (number)",
+      "format": "number",
+      "name": "fontSize",
+    },
+    Object {
+      "description": "one (oneOfType)",
+      "format": "string | number | any",
+      "name": "one",
+    },
+    Object {
+      "deprecated": "do not use",
+      "description": "deprecated (string)",
+      "format": "string",
+      "name": "deprecatedProp",
+    },
+  ],
+}
+`;

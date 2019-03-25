@@ -68,6 +68,12 @@ export default function describe(ComponentInstance) {
   DocumentedComponent.toTypescript = descToTypescript.bind(null, ComponentInstance, documentation);
   DocumentedComponent.toMarkdown = descToMarkdown.bind(null, ComponentInstance, documentation);
 
+  const externalDocumentation = {
+    toJSON: DocumentedComponent.toJSON,
+    toMarkdown: DocumentedComponent.toMarkdown,
+    toTypescript: DocumentedComponent.toTypescript,
+  };
+
   Object.defineProperty(
     DocumentedComponent,
     'propTypes', {
@@ -98,6 +104,15 @@ export default function describe(ComponentInstance) {
     DocumentedComponent,
     'describedPropTypes', {
       get: () => documentation.propTypes,
+      enumerable: true,
+      configurable: true,
+    },
+  );
+
+  Object.defineProperty(
+    DocumentedComponent,
+    'documentation', {
+      get: () => externalDocumentation,
       enumerable: true,
       configurable: true,
     },
